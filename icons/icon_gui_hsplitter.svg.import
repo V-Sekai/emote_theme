@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/icon_gui_hsplitter.svg-a45470ff9b7164bc8072a5d779150c94.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/icon_gui_scroll_bg.svg-d36a7e872c992387ad726242ba2af32b.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

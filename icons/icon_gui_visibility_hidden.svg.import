@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/icon_gui_visibility_hidden.svg-914982387d7c750e3f89f4b31ffa48da.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/icon_gui_spinbox_updown.svg-b156d63a25c5e9795c780d6840748842.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
