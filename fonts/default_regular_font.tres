@@ -3,13 +3,6 @@
 [ext_resource path="res://addons/emote_theme/fonts/roboto_mono_regular.ttf" type="DynamicFontData" id=1]
 
 [resource]
-
-size = 16
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
-use_mipmaps = false
-use_filter = false
 extra_spacing_top = -1
 extra_spacing_bottom = -1
 font_data = ExtResource( 1 )
-
