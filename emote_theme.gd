@@ -5,7 +5,7 @@ const DEFAULT_CONTRAST = 0.25
 const DEFAULT_BOX_CONTAINER_SEPERATION = 4
 
 const DEFAULT_MARGIN_SIZE = 4
-const DEFAULT_FONT_SIZE = 16
+const DEFAULT_FONT_SIZE = 28
 
 const DEFAULT_BASE_COLOR = Color(1.0, 1.0, 1.0, 1.0)
 const DEFAULT_BG_COLOR = Color(0.9, 0.9, 0.9, 1.0)
@@ -54,7 +54,8 @@ static func make_flat_stylebox(p_color, p_scale, p_margin_left = -1, p_margin_to
 static func make_line_stylebox(p_color, p_scale, p_thickness = 1, p_grow = 1, p_vertical = false):
 	var style = StyleBoxLine.new()
 	style.set_color(p_color)
-	style.set_grow(p_grow)
+	style.set_grow_begin(p_grow)
+	style.set_grow_end(p_grow)
 	style.set_thickness(p_thickness)
 	style.set_vertical(p_vertical)
 	return style
