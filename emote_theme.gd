@@ -339,6 +339,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	style_widget_hover.set_border_width_all(border_width)
 	style_widget_hover.set_bg_color(DEFAULT_WIDGET_COLOR_INVERSE)
 	style_widget_hover.set_border_color(DEFAULT_WIDGET_COLOR)
+	style_widget_hover.set_draw_center(false)
 
 	var style_popup = style_default.duplicate()
 	style_popup.set_name("StylePopup")
