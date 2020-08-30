@@ -4,21 +4,35 @@ tool
 const DEFAULT_CONTRAST = 0.25
 const DEFAULT_BOX_CONTAINER_SEPERATION = 4
 
+const WINDOW_TITLEBAR = 26
+
 const DEFAULT_MARGIN_SIZE = 4
-const DEFAULT_FONT_SIZE = 28
+const DEFAULT_FONT_SIZE = 16
 
-const DEFAULT_BASE_COLOR = Color(1.0, 1.0, 1.0, 1.0)
-const DEFAULT_BG_COLOR = Color(0.9, 0.9, 0.9, 1.0)
-const DEFAULT_BORDER_COLOR = Color(0.8, 0.8, 0.8, 1.0)
-const DEFAULT_DISABLED_BG_COLOR = Color(1.0, 1.0, 1.0, 1.0)
-const DEFAULT_DISABLED_BORDER_COLOR = Color(1.0, 1.0, 1.0, 1.0)
+# Bug can't use HTML notation in constants
+const EMOTE_SECONDARY_COLOR = Color(98.0 / 100, 98.0 / 100, 98.0 / 100) #fafafa
+const EMOTE_SECONDARY_COLOR_DARK = Color(98.0 / 100 / 2, 98.0 / 100 / 2, 98.0 / 100 / 2)
+const EMOTE_PRIMARY_COLOR = Color(78.4 / 100, 7.8 / 100, 7.8 / 100) #c81414
+const EMOTE_PRIMARY_COLOR_BRIGHT = Color(94.4 / 100, 7.8 / 100, 7.8 / 100)
+const EMOTE_PRIMARY_COLOR_DARK = Color(78.4 / 100 / 2.0, 7.8 / 100 / 2.0, 7.8 / 100 / 2.0)
 
-const DEFAULT_FONT_COLOR = Color(0.25, 0.25, 0.25, 1.0)
-const DEFAULT_FONT_COLOR_HL = Color(0.15, 0.15, 0.15, 1.0)
-const DEFAULT_FONT_COLOR_DISABLED = Color(0, 0, 0, 0.3)
-const DEFAULT_ACCENT_COLOR = Color(0.12549, 0.439216, 1, 1)
-const DEFAULT_FONT_COLOR_SELECTION = Color(0, 0, 0, 1)
-const DEFAULT_FONT_COLOR_HIGHLIGHT = Color(0, 0, 0, 0.2)
+const DEFAULT_BASE_COLOR = EMOTE_SECONDARY_COLOR
+const DEFAULT_BG_COLOR = EMOTE_SECONDARY_COLOR
+const DEFAULT_DISABLED_BG_COLOR = EMOTE_SECONDARY_COLOR_DARK
+const DEFAULT_DISABLED_BORDER_COLOR = Color(0.0, 0.0, 0.0, 0.0)
+
+const DEFAULT_WIDGET_COLOR = EMOTE_PRIMARY_COLOR
+const DEFAULT_WIDGET_COLOR_INVERSE = EMOTE_SECONDARY_COLOR
+const DEFAULT_WIDGET_BORDER_COLOR = Color(0.0, 0.0, 0.0, 0.0)
+const DEFAULT_WIDGET_FONT_COLOR = EMOTE_SECONDARY_COLOR
+const DEFAULT_WIDGET_FONT_COLOR_INVERSE = EMOTE_PRIMARY_COLOR
+
+const DEFAULT_FONT_COLOR = EMOTE_SECONDARY_COLOR
+const DEFAULT_FONT_COLOR_HL = EMOTE_PRIMARY_COLOR_BRIGHT
+const DEFAULT_FONT_COLOR_DISABLED = EMOTE_SECONDARY_COLOR_DARK
+const DEFAULT_ACCENT_COLOR = EMOTE_PRIMARY_COLOR_DARK
+const DEFAULT_FONT_COLOR_SELECTION = EMOTE_PRIMARY_COLOR
+const DEFAULT_FONT_COLOR_HIGHLIGHT = EMOTE_PRIMARY_COLOR
 
 static func make_stylebox(
 	p_texture,
@@ -275,7 +289,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	var default_font = register_font(theme, p_scale)
 	var large_font = register_font(theme, p_scale)
 
-	var tab_color = DEFAULT_BASE_COLOR
+	var tab_color = DEFAULT_WIDGET_COLOR_INVERSE
 	var margin_size_extra = DEFAULT_MARGIN_SIZE + 1
 
 	var shadow_color = Color(0, 0, 0, 0.6)
@@ -287,32 +301,47 @@ static func generate_emote_theme(p_theme_class, p_scale):
 		DEFAULT_MARGIN_SIZE,
 		DEFAULT_MARGIN_SIZE
 	)
+	var style_empty_widget = make_empty_stylebox(p_scale, 0, DEFAULT_MARGIN_SIZE, 0, DEFAULT_MARGIN_SIZE)
+	
+	style_default.set_name("StyleDefault")
 	style_default.set_border_width_all(border_width)
 	style_default.set_border_color(DEFAULT_BASE_COLOR)
 	style_default.set_draw_center(true)
 
 	var style_widget = style_default.duplicate()
+	style_widget.set_border_width_all(0)
+	style_widget.set_name("StyleWidget")
 	style_widget.set_default_margin(MARGIN_LEFT, (6) * p_scale)
 	style_widget.set_default_margin(MARGIN_TOP, DEFAULT_MARGIN_SIZE * p_scale)
 	style_widget.set_default_margin(MARGIN_RIGHT, (6) * p_scale)
 	style_widget.set_default_margin(MARGIN_BOTTOM, DEFAULT_MARGIN_SIZE * p_scale)
-	style_widget.set_bg_color(DEFAULT_BG_COLOR)
-	style_widget.set_border_color(DEFAULT_BORDER_COLOR)
+	style_widget.set_bg_color(DEFAULT_WIDGET_COLOR)
+	style_widget.set_border_color(DEFAULT_WIDGET_BORDER_COLOR)
 
 	var style_widget_disabled = style_widget.duplicate()
+	style_widget_disabled.set_name("StyleWidgetDisabled")
 	style_widget_disabled.set_border_color(DEFAULT_DISABLED_BORDER_COLOR)
 	style_widget_disabled.set_bg_color(DEFAULT_DISABLED_BG_COLOR)
 
 	var style_widget_focus = style_widget.duplicate()
-	style_widget_focus.set_border_color(DEFAULT_ACCENT_COLOR)
+	style_widget_focus.set_name("StyleWidgetFocus")
+	style_widget_focus.set_draw_center(false)
+	style_widget_focus.set_border_width_all(border_width)
+	style_widget_focus.set_border_color(DEFAULT_WIDGET_COLOR)
 
 	var style_widget_pressed = style_widget.duplicate()
+	style_widget_pressed.set_name("StyleWidgetPressed")
+	style_widget_pressed.set_bg_color(DEFAULT_WIDGET_COLOR_INVERSE)
 	style_widget_pressed.set_border_color(DEFAULT_ACCENT_COLOR)
 
 	var style_widget_hover = style_widget.duplicate()
-	style_widget_hover.set_border_color(contrast_color_1)
+	style_widget_hover.set_name("StyleWidgetHover")
+	style_widget_hover.set_border_width_all(border_width)
+	style_widget_hover.set_bg_color(DEFAULT_WIDGET_COLOR_INVERSE)
+	style_widget_hover.set_border_color(DEFAULT_WIDGET_COLOR)
 
 	var style_popup = style_default.duplicate()
+	style_popup.set_name("StylePopup")
 	var popup_margin_size = DEFAULT_MARGIN_SIZE * p_scale * 2
 	style_popup.set_default_margin(MARGIN_LEFT, popup_margin_size)
 	style_popup.set_default_margin(MARGIN_TOP, popup_margin_size)
@@ -321,9 +350,11 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	style_popup.set_border_color(contrast_color_1)
 	style_popup.set_border_width_all(max(p_scale, border_width))
 	style_popup.set_shadow_color(shadow_color)
-	style_popup.set_shadow_size(4 * p_scale)
+	style_popup.set_shadow_offset(Vector2(2, 2) * p_scale)
+	style_popup.set_shadow_size(2 * p_scale)
 
 	var style_popup_separator = StyleBoxLine.new()
+	style_popup_separator.set_name("StylePopupSeparator")
 	style_popup_separator.set_color(separator_color)
 	style_popup_separator.set_grow_begin(popup_margin_size - max(p_scale, border_width))
 	style_popup_separator.set_grow_end(popup_margin_size - max(p_scale, border_width))
@@ -341,19 +372,20 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	var tab_default_margin_vertical = 5 * p_scale
 
 	var style_tab_selected = style_widget.duplicate()
-
+	style_tab_selected.set_name("StyleTabSelected")
 	style_tab_selected.set_border_width_all(border_width)
 	style_tab_selected.set_border_width(MARGIN_BOTTOM, 0)
-	style_tab_selected.set_border_color(dark_color_3)
+	style_tab_selected.set_border_color(DEFAULT_WIDGET_COLOR)
 	style_tab_selected.expand_margin_bottom = border_width
 	style_tab_selected.set_default_margin(MARGIN_LEFT, tab_default_margin_side)
 	style_tab_selected.set_default_margin(MARGIN_RIGHT, tab_default_margin_side)
 	style_tab_selected.set_default_margin(MARGIN_BOTTOM, tab_default_margin_vertical)
 	style_tab_selected.set_default_margin(MARGIN_TOP, tab_default_margin_vertical)
-	style_tab_selected.set_bg_color(tab_color)
+	style_tab_selected.set_bg_color(DEFAULT_WIDGET_COLOR_INVERSE)
 
 	var style_tab_unselected = style_tab_selected.duplicate()
-	style_tab_unselected.set_draw_center(false)
+	style_tab_unselected.set_name("StyleTabUnSelected")
+	style_tab_unselected.set_bg_color(DEFAULT_WIDGET_COLOR)
 	style_tab_unselected.set_border_width_all(0)
 
 	# Editor background
@@ -373,6 +405,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	# Focus
 
 	var style_focus = style_default.duplicate()
+	style_focus.set_name("Focus")
 	style_focus.set_draw_center(false)
 	style_focus.set_border_color(contrast_color_2)
 	theme.set_stylebox("Focus", "EditorStyles", style_focus)
@@ -380,6 +413,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	# Menu
 
 	var style_menu = style_widget.duplicate()
+	style_menu.set_name("StyleMenu")
 	style_menu.set_draw_center(false)
 	style_menu.set_border_width_all(0)
 	theme.set_stylebox("panel", "PanelContainer", style_menu)
@@ -396,7 +430,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# Play button group
 
-	theme.set_stylebox("PlayButtonPanel", "EditorStyles", style_empty)
+	theme.set_stylebox("PlayButtonPanel", "EditorStyles", style_empty_widget)
 
 	# Button
 
@@ -408,18 +442,18 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	theme.set_font("font", "Button", default_font)
 
-	theme.set_color("font_color", "Button", DEFAULT_FONT_COLOR)
-	theme.set_color("font_color_hover", "Button", DEFAULT_FONT_COLOR_HL)
+	theme.set_color("font_color", "Button", DEFAULT_WIDGET_FONT_COLOR)
+	theme.set_color("font_color_hover", "Button", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
 	theme.set_color("font_color_pressed", "Button", DEFAULT_ACCENT_COLOR)
-	theme.set_color("font_color_disabled", "Button", DEFAULT_FONT_COLOR_DISABLED)
+	theme.set_color("font_color_disabled", "Button", DEFAULT_FONT_COLOR)
 	theme.set_color("icon_color_hover", "Button", DEFAULT_FONT_COLOR_HL)
 	theme.set_color(
 		"icon_color_pressed",
 		"Button",
 		Color(
-			DEFAULT_ACCENT_COLOR.r * 1.15,
-			DEFAULT_ACCENT_COLOR.g * 1.15,
-			DEFAULT_ACCENT_COLOR.b * 1.15,
+			DEFAULT_ACCENT_COLOR.r,
+			DEFAULT_ACCENT_COLOR.g,
+			DEFAULT_ACCENT_COLOR.b,
 			DEFAULT_ACCENT_COLOR.a
 		)
 	)
@@ -455,15 +489,15 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# ToolButton
 
-	theme.set_stylebox("normal", "ToolButton", style_menu)
-	theme.set_stylebox("hover", "ToolButton", style_menu)
-	theme.set_stylebox("pressed", "ToolButton", style_menu)
-	theme.set_stylebox("focus", "ToolButton", style_menu)
-	theme.set_stylebox("disabled", "ToolButton", style_menu)
+	theme.set_stylebox("normal", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("hover", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("pressed", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("focus", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("disabled", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
 
 	theme.set_font("font", "ToolButton", default_font)
 
-	theme.set_color("font_color", "ToolButton", DEFAULT_FONT_COLOR)
+	theme.set_color("font_color", "ToolButton", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
 	theme.set_color("font_color_hover", "ToolButton", DEFAULT_FONT_COLOR_HL)
 	theme.set_color("font_color_pressed", "ToolButton", DEFAULT_ACCENT_COLOR)
 
@@ -490,20 +524,22 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	# MenuButton
 
 	var style_menu_hover_border = style_widget.duplicate()
+	style_menu_hover_border.set_name("StyleMenuHoverBorder")
 	style_menu_hover_border.set_draw_center(false)
 	style_menu_hover_border.set_border_width_all(0)
 	style_menu_hover_border.set_border_width(MARGIN_BOTTOM, border_width)
 	style_menu_hover_border.set_border_color(DEFAULT_ACCENT_COLOR)
 
 	var style_menu_hover_bg = style_widget.duplicate()
+	style_menu_hover_bg.set_name("StyleMenuHoverBG")
 	style_menu_hover_bg.set_border_width_all(0)
 	style_menu_hover_bg.set_bg_color(dark_color_1)
 
-	theme.set_stylebox("normal", "MenuButton", style_menu)
-	theme.set_stylebox("hover", "MenuButton", style_menu)
-	theme.set_stylebox("pressed", "MenuButton", style_menu)
-	theme.set_stylebox("focus", "MenuButton", style_menu)
-	theme.set_stylebox("disabled", "MenuButton", style_menu)
+	theme.set_stylebox("normal", "MenuButton", style_widget)
+	theme.set_stylebox("hover", "MenuButton", style_widget_hover)
+	theme.set_stylebox("pressed", "MenuButton", style_widget_pressed)
+	theme.set_stylebox("focus", "MenuButton", style_widget_focus)
+	theme.set_stylebox("disabled", "MenuButton", style_widget_disabled)
 
 	theme.set_font("font", "MenuButton", default_font)
 
@@ -529,16 +565,11 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	theme.set_stylebox("panel", "ButtonGroup", StyleBoxEmpty.new())
 
 	# Checkbox
-	var sb_checkbox = style_menu.duplicate()
-	sb_checkbox.set_default_margin(MARGIN_LEFT, DEFAULT_MARGIN_SIZE * p_scale)
-	sb_checkbox.set_default_margin(MARGIN_RIGHT, DEFAULT_MARGIN_SIZE * p_scale)
-	sb_checkbox.set_default_margin(MARGIN_TOP, DEFAULT_MARGIN_SIZE * p_scale)
-	sb_checkbox.set_default_margin(MARGIN_BOTTOM, DEFAULT_MARGIN_SIZE * p_scale)
 
-	theme.set_stylebox("normal", "CheckBox", sb_checkbox)
-	theme.set_stylebox("pressed", "CheckBox", sb_checkbox)
-	theme.set_stylebox("disabled", "CheckBox", sb_checkbox)
-	theme.set_stylebox("hover", "CheckBox", sb_checkbox)
+	theme.set_stylebox("normal", "CheckBox", style_empty_widget)
+	theme.set_stylebox("pressed", "CheckBox", style_empty_widget)
+	theme.set_stylebox("disabled", "CheckBox", style_empty_widget)
+	theme.set_stylebox("hover", "CheckBox", style_empty_widget)
 	theme.set_icon("checked", "CheckBox", icon_gui_checked)
 	theme.set_icon("unchecked", "CheckBox", icon_gui_unchecked)
 	theme.set_icon("radio_checked", "CheckBox", icon_gui_radio_checked)
@@ -546,7 +577,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	theme.set_font("font", "CheckBox", default_font)
 
-	theme.set_color("font_color", "CheckBox", DEFAULT_FONT_COLOR)
+	theme.set_color("font_color", "CheckBox", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
 	theme.set_color("font_color_hover", "CheckBox", DEFAULT_FONT_COLOR_HL)
 	theme.set_color("font_color_pressed", "CheckBox", DEFAULT_ACCENT_COLOR)
 	theme.set_color("font_color_disabled", "CheckBox", DEFAULT_FONT_COLOR_DISABLED)
@@ -557,17 +588,17 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# CheckButton
 
-	theme.set_stylebox("normal", "CheckButton", style_menu)
-	theme.set_stylebox("pressed", "CheckButton", style_menu)
-	theme.set_stylebox("disabled", "CheckButton", style_menu)
-	theme.set_stylebox("hover", "CheckButton", style_menu)
+	theme.set_stylebox("normal", "CheckButton", style_empty_widget)
+	theme.set_stylebox("pressed", "CheckButton", style_empty_widget)
+	theme.set_stylebox("disabled", "CheckButton", style_empty_widget)
+	theme.set_stylebox("hover", "CheckButton", style_empty_widget)
 
 	theme.set_icon("on", "CheckButton", icon_gui_toggle_on)
 	theme.set_icon("off", "CheckButton", icon_gui_toggle_off)
 
 	theme.set_font("font", "CheckButton", default_font)
 
-	theme.set_color("font_color", "CheckButton", DEFAULT_FONT_COLOR)
+	theme.set_color("font_color", "CheckButton", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
 	theme.set_color("font_color_hover", "CheckButton", DEFAULT_FONT_COLOR_HL)
 	theme.set_color("font_color_pressed", "CheckButton", DEFAULT_ACCENT_COLOR)
 	theme.set_color("font_color_disabled", "CheckButton", DEFAULT_FONT_COLOR_DISABLED)
@@ -581,7 +612,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	theme.set_stylebox("normal", "Label", style_empty)
 	theme.set_font("font", "Label", default_font)
 
-	theme.set_color("font_color", "Label", DEFAULT_FONT_COLOR)
+	theme.set_color("font_color", "Label", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
 	theme.set_color("font_color_shadow", "Label", Color(0, 0, 0, 0))
 	theme.set_color("font_outline_modulate", "Label", Color(1, 1, 1))
 
@@ -592,33 +623,33 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# LineEdit
 
-	theme.set_stylebox("normal", "LineEdit", style_widget)
-	theme.set_stylebox("focus", "LineEdit", style_widget_focus)
+	theme.set_stylebox("normal", "LineEdit", style_widget_hover)
+	theme.set_stylebox("focus", "LineEdit", style_widget_hover)
 	theme.set_stylebox("read_only", "LineEdit", style_widget_disabled)
 
 	theme.set_font("font", "LineEdit", default_font)
 
 	theme.set_color("read_only", "LineEdit", DEFAULT_FONT_COLOR_DISABLED)
-	theme.set_color("font_color", "LineEdit", DEFAULT_FONT_COLOR)
-	theme.set_color("cursor_color", "LineEdit", DEFAULT_FONT_COLOR)
+	theme.set_color("font_color", "LineEdit", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
+	theme.set_color("cursor_color", "LineEdit", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
 	theme.set_color("selection_color", "LineEdit", DEFAULT_FONT_COLOR_SELECTION)
 
 	# ProgressBar
+	var progressbar_bg_stylebox = make_flat_stylebox(EMOTE_SECONDARY_COLOR, p_scale, 0, -1, 0, -1)
+	var progressbar_fg_stylebox = make_flat_stylebox(EMOTE_PRIMARY_COLOR, p_scale, 0, -1, 0, -1)
 
-	var progressbar_fg_stylebox = make_flat_stylebox(dark_color_3, p_scale, 0, -1, 0, -1)
-
-	theme.set_stylebox("bg", "ProgressBar", style_widget)
+	theme.set_stylebox("bg", "ProgressBar", progressbar_bg_stylebox)
 	theme.set_stylebox("fg", "ProgressBar", progressbar_fg_stylebox)
 
 	theme.set_font("font", "ProgressBar", default_font)
 
-	theme.set_color("font_color", "ProgressBar", DEFAULT_FONT_COLOR)
+	theme.set_color("font_color", "ProgressBar", DEFAULT_WIDGET_FONT_COLOR)
 	theme.set_color("font_color_shadow", "ProgressBar", Color(0, 0, 0))
 
 	# TextEdit
 
-	theme.set_stylebox("normal", "TextEdit", style_widget)
-	theme.set_stylebox("focus", "TextEdit", style_widget_hover)
+	theme.set_stylebox("normal", "TextEdit", style_widget_pressed)
+	theme.set_stylebox("focus", "TextEdit", style_widget_pressed)
 	theme.set_stylebox("read_only", "TextEdit", style_widget_disabled)
 
 	theme.set_constant("side_margin", "TabContainer", 0)
@@ -634,9 +665,9 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	var scroll_stylebox = make_flat_stylebox(DEFAULT_BASE_COLOR, p_scale, 5, 5, 5, 5)
 	var scroll_focus_stylebox = make_flat_stylebox(DEFAULT_BASE_COLOR, p_scale, 5, 5, 5, 5)
-	var grabber_stylebox = make_flat_stylebox(dark_color_1, p_scale, 5, 5, 5, 5)
-	var grabber_highlight_stylebox = make_flat_stylebox(dark_color_2, p_scale, 5, 5, 5, 5)
-	var grabber_pressed_stylebox = make_flat_stylebox(dark_color_3, p_scale, 5, 5, 5, 5)
+	var grabber_stylebox = make_flat_stylebox(EMOTE_PRIMARY_COLOR, p_scale, 5, 5, 5, 5)
+	var grabber_highlight_stylebox = make_flat_stylebox(EMOTE_PRIMARY_COLOR_BRIGHT, p_scale, 5, 5, 5, 5)
+	var grabber_pressed_stylebox = make_flat_stylebox(EMOTE_PRIMARY_COLOR_DARK, p_scale, 5, 5, 5, 5)
 
 	# HScrollBar
 	theme.set_stylebox("scroll", "HScrollBar", scroll_stylebox)
@@ -703,11 +734,12 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	# WindowDialog
 
 	var style_window = style_popup.duplicate()
-	style_window.set_border_color(tab_color)
-	style_window.set_border_width(MARGIN_TOP, 24 * p_scale)
-	style_window.expand_margin_top = (24 * p_scale)
+	style_window.set_name("StyleWindow")
+	style_window.set_border_color(DEFAULT_WIDGET_COLOR)
+	style_window.set_border_width(MARGIN_TOP, WINDOW_TITLEBAR * p_scale)
+	style_window.expand_margin_top = (WINDOW_TITLEBAR * p_scale)
 	theme.set_stylebox("panel", "WindowDialog", style_window)
-	theme.set_color("title_color", "WindowDialog", DEFAULT_FONT_COLOR)
+	theme.set_color("title_color", "WindowDialog", DEFAULT_WIDGET_FONT_COLOR)
 	theme.set_icon("close", "WindowDialog", icon_gui_close)
 	theme.set_icon("close_highlight", "WindowDialog", icon_gui_close)
 	theme.set_constant("close_h_ofs", "WindowDialog", 22 * p_scale)
@@ -725,8 +757,8 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	var style_popup_menu = style_popup
 	theme.set_stylebox("panel", "PopupMenu", style_popup_menu)
 	theme.set_stylebox("separator", "PopupMenu", style_popup_separator)
-	theme.set_color("font_color", "PopupMenu", DEFAULT_FONT_COLOR)
-	theme.set_color("font_color_hover", "PopupMenu", DEFAULT_FONT_COLOR_HL)
+	theme.set_color("font_color", "PopupMenu", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
+	theme.set_color("font_color_hover", "PopupMenu", DEFAULT_WIDGET_FONT_COLOR)
 	theme.set_color("font_color_accel", "PopupMenu", DEFAULT_FONT_COLOR_DISABLED)
 	theme.set_color("font_color_disabled", "PopupMenu", DEFAULT_FONT_COLOR_DISABLED)
 	theme.set_icon("checked", "PopupMenu", icon_gui_checked)
@@ -744,7 +776,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# Tree & ItemList background
 
-	theme.set_stylebox("bg", "Tree", style_widget)
+	theme.set_stylebox("bg", "Tree", style_widget_hover)
 
 	var guide_color = Color(mono_color.r, mono_color.g, mono_color.b, 0.05)
 
@@ -764,9 +796,9 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	theme.set_stylebox("custom_button_pressed", "Tree", make_empty_stylebox(p_scale))
 	theme.set_stylebox("custom_button_hover", "Tree", style_widget)
 	theme.set_color("custom_button_font_highlight", "Tree", DEFAULT_FONT_COLOR_HL)
-	theme.set_color("font_color", "Tree", DEFAULT_FONT_COLOR)
-	theme.set_color("font_color_selected", "Tree", mono_color)
-	theme.set_color("title_button_color", "Tree", DEFAULT_FONT_COLOR)
+	theme.set_color("font_color", "Tree", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
+	theme.set_color("font_color_selected", "Tree", DEFAULT_WIDGET_FONT_COLOR)
+	theme.set_color("title_button_color", "Tree", DEFAULT_WIDGET_FONT_COLOR)
 	theme.set_color("guide_color", "Tree", guide_color)
 	theme.set_color("drop_position_color", "Tree", DEFAULT_ACCENT_COLOR)
 	theme.set_constant("vseparation", "Tree", (DEFAULT_MARGIN_SIZE) * p_scale)
@@ -779,24 +811,29 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	theme.set_constant("scroll_speed", "Tree", 12)
 
 	var style_tree_btn = style_default.duplicate()
+	style_tree_btn.set_name("StyleTreeButton")
 	style_tree_btn.set_bg_color(contrast_color_1)
 	style_tree_btn.set_border_width_all(0)
 	theme.set_stylebox("button_pressed", "Tree", style_tree_btn)
 
 	var style_tree_focus = style_default.duplicate()
+	style_tree_focus.set_name("StyleTreeFocus")
 	style_tree_focus.set_bg_color(highlight_color)
 	style_tree_focus.set_border_width_all(0)
 	theme.set_stylebox("selected_focus", "Tree", style_tree_focus)
 
 	var style_tree_selected = style_tree_focus.duplicate()
+	style_tree_selected.set_name("StyleTreeSelected")
 	theme.set_stylebox("selected", "Tree", style_tree_selected)
 
 	var style_tree_cursor = style_default.duplicate()
+	style_tree_cursor.set_name("StyleTreeCursor")
 	style_tree_cursor.set_draw_center(false)
 	style_tree_cursor.set_border_width_all(border_width)
 	style_tree_cursor.set_border_color(contrast_color_1)
 
 	var style_tree_title = style_default.duplicate()
+	style_tree_title.set_name("StyleTreeTitle")
 	style_tree_title.set_bg_color(dark_color_3)
 	style_tree_title.set_border_width_all(0)
 	theme.set_stylebox("cursor", "Tree", style_tree_cursor)
@@ -815,11 +852,13 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# ItemList
 	var style_itemlist_bg = style_default.duplicate()
-	style_itemlist_bg.set_bg_color(dark_color_1)
+	style_itemlist_bg.set_name("StyleItemlistBG")
+	style_itemlist_bg.set_bg_color(DEFAULT_WIDGET_COLOR_INVERSE)
 	style_itemlist_bg.set_border_width_all(border_width)
-	style_itemlist_bg.set_border_color(dark_color_3)
+	style_itemlist_bg.set_border_color(DEFAULT_WIDGET_COLOR)
 
 	var style_itemlist_cursor = style_default.duplicate()
+	style_itemlist_cursor.set_name("StyleItemlistCursor")
 	style_itemlist_cursor.set_draw_center(false)
 	style_itemlist_cursor.set_border_width_all(border_width)
 	style_itemlist_cursor.set_border_color(highlight_color)
@@ -829,8 +868,8 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	theme.set_stylebox("selected", "ItemList", style_tree_selected)
 	theme.set_stylebox("bg_focus", "ItemList", style_focus)
 	theme.set_stylebox("bg", "ItemList", style_itemlist_bg)
-	theme.set_color("font_color", "ItemList", DEFAULT_FONT_COLOR)
-	theme.set_color("font_color_selected", "ItemList", mono_color)
+	theme.set_color("font_color", "ItemList", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
+	theme.set_color("font_color_selected", "ItemList", DEFAULT_WIDGET_FONT_COLOR)
 	theme.set_color("guide_color", "ItemList", guide_color)
 	theme.set_constant("vseparation", "ItemList", 2 * p_scale)
 	theme.set_constant("hseparation", "ItemList", 2 * p_scale)
@@ -843,10 +882,10 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	theme.set_stylebox("tab_bg", "TabContainer", style_tab_unselected)
 	theme.set_stylebox("tab_fg", "Tabs", style_tab_selected)
 	theme.set_stylebox("tab_bg", "Tabs", style_tab_unselected)
-	theme.set_color("font_color_fg", "TabContainer", DEFAULT_FONT_COLOR)
-	theme.set_color("font_color_bg", "TabContainer", DEFAULT_FONT_COLOR_DISABLED)
-	theme.set_color("font_color_fg", "Tabs", DEFAULT_FONT_COLOR)
-	theme.set_color("font_color_bg", "Tabs", DEFAULT_FONT_COLOR_DISABLED)
+	theme.set_color("font_color_fg", "TabContainer", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
+	theme.set_color("font_color_bg", "TabContainer", DEFAULT_WIDGET_FONT_COLOR)
+	theme.set_color("font_color_fg", "Tabs", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
+	theme.set_color("font_color_bg", "Tabs", DEFAULT_WIDGET_FONT_COLOR)
 	theme.set_icon("menu", "TabContainer", icon_gui_tab_menu)
 	theme.set_icon("menu_highlight", "TabContainer", icon_gui_tab_menu)
 	theme.set_font("font", "TabContainer", default_font)
@@ -868,7 +907,8 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# Content of each tab
 	var style_content_panel = style_default.duplicate()
-	style_content_panel.set_border_color(dark_color_3)
+	style_content_panel.set_name("StyleContentPanel")
+	style_content_panel.set_border_color(DEFAULT_WIDGET_COLOR)
 	style_content_panel.set_border_width_all(border_width)
 	# compensate the border
 	style_content_panel.set_default_margin(MARGIN_TOP, margin_size_extra * p_scale)
@@ -878,6 +918,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# this is the stylebox used in 3d and 2d viewports (no borders)
 	var style_content_panel_vp = style_content_panel.duplicate()
+	style_content_panel_vp.set_name("StyleContentPanelVP")
 	style_content_panel_vp.set_default_margin(MARGIN_LEFT, border_width * 2)
 	style_content_panel_vp.set_default_margin(MARGIN_TOP, DEFAULT_MARGIN_SIZE * p_scale)
 	style_content_panel_vp.set_default_margin(MARGIN_RIGHT, border_width * 2)
@@ -922,6 +963,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# complex window, for now only Editor settings and Project settings
 	var style_complex_window = style_window.duplicate()
+	style_complex_window.set_name("StyleComplexWindow")
 	style_complex_window.set_bg_color(dark_color_2)
 	style_complex_window.set_border_color(dark_color_2)
 	theme.set_stylebox("panel", "EditorSettingsDialog", style_complex_window)
@@ -942,10 +984,11 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	theme.set_color("headline_color", "EditorHelp", mono_color)
 
 	# Panel
-	theme.set_stylebox("panel", "Panel", style_widget)
+	theme.set_stylebox("panel", "Panel", style_default)
 
 	# TooltipPanel
 	var style_tooltip = style_popup.duplicate()
+	style_tooltip.set_name("StyleTooltip")
 	style_tooltip.set_bg_color(Color(mono_color.r, mono_color.g, mono_color.b, 0.9))
 	style_tooltip.set_border_width_all(border_width)
 	style_tooltip.set_border_color(mono_color)
@@ -997,10 +1040,12 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	graphsbcommentselected.set_border_width_all(border_width)
 	graphsbcommentselected.set_border_color(Color(mv2, mv2, mv2, 0.9))
 	var graphsbbreakpoint = graphsbselected.duplicate()
+	graphsbbreakpoint.set_name("GraphsBBreakpoint")
 	graphsbbreakpoint.set_draw_center(false)
 	graphsbbreakpoint.set_border_color(warning_color)
 	graphsbbreakpoint.set_shadow_color(warning_color * Color(1.0, 1.0, 1.0, 0.1))
 	var graphsbposition = graphsbselected.duplicate()
+	graphsbposition.set_name("GraphsBPosition")
 	graphsbposition.set_draw_center(false)
 	graphsbposition.set_border_color(error_color)
 	graphsbposition.set_shadow_color(error_color * Color(1.0, 1.0, 1.0, 0.2))
@@ -1042,6 +1087,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# Information on 3D viewport
 	var style_info_3d_viewport = style_default.duplicate()
+	style_info_3d_viewport.set_name("StyleInfo3DViewport")
 	style_info_3d_viewport.set_bg_color(style_info_3d_viewport.get_bg_color() * Color(1, 1, 1, 0.5))
 	style_info_3d_viewport.set_border_width_all(0)
 	theme.set_stylebox("Information3dViewport", "EditorStyles", style_info_3d_viewport)
