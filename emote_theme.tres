@@ -43,7 +43,7 @@ content_margin_left = 6.0
 content_margin_right = 6.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-bg_color = Color( 0.49, 0.49, 0.49, 1 )
+bg_color = Color( 0.480469, 0.476562, 0.472656, 0.5 )
 border_color = Color( 0, 0, 0, 0 )
 
 [sub_resource type="StyleBoxFlat" id=3]
@@ -52,13 +52,13 @@ content_margin_left = 6.0
 content_margin_right = 6.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-bg_color = Color( 0.784, 0.078, 0.078, 1 )
+bg_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 draw_center = false
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.784, 0.078, 0.078, 1 )
+border_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 
 [sub_resource type="StyleBoxFlat" id=4]
 resource_name = "StyleWidgetHover"
@@ -66,13 +66,13 @@ content_margin_left = 6.0
 content_margin_right = 6.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 draw_center = false
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.784, 0.078, 0.078, 1 )
+border_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 resource_name = "StyleWidget"
@@ -80,7 +80,7 @@ content_margin_left = 6.0
 content_margin_right = 6.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-bg_color = Color( 0.784, 0.078, 0.078, 1 )
+bg_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 border_color = Color( 0, 0, 0, 0 )
 
 [sub_resource type="StyleBoxFlat" id=6]
@@ -89,8 +89,8 @@ content_margin_left = 6.0
 content_margin_right = 6.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
-border_color = Color( 0.392, 0.039, 0.039, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
+border_color = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
 
 [sub_resource type="StyleBoxEmpty" id=7]
 
@@ -106,12 +106,12 @@ content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 8.0
 content_margin_bottom = 8.0
-bg_color = Color( 0.6125, 0.6125, 0.6125, 1 )
+bg_color = Color( 0.600586, 0.595703, 0.59082, 1 )
 border_width_left = 1
 border_width_top = 26
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.6125, 0.6125, 0.6125, 1 )
+border_color = Color( 0.600586, 0.595703, 0.59082, 1 )
 expand_margin_top = 26.0
 shadow_size = 2
 shadow_offset = Vector2( 2, 2 )
@@ -121,7 +121,7 @@ content_margin_left = 16.0
 content_margin_right = 16.0
 content_margin_top = 16.0
 content_margin_bottom = -4.0
-bg_color = Color( 0.6125, 0.6125, 0.6125, 1 )
+bg_color = Color( 0.600586, 0.595703, 0.59082, 1 )
 
 [sub_resource type="StyleBoxFlat" id=11]
 resource_name = "StyleContentPanelVP"
@@ -129,12 +129,12 @@ content_margin_left = 2.0
 content_margin_right = 2.0
 content_margin_top = 4.0
 content_margin_bottom = 2.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.784, 0.078, 0.078, 1 )
+border_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 
 [sub_resource type="StyleBoxFlat" id=12]
 resource_name = "Focus"
@@ -142,13 +142,13 @@ content_margin_left = 16.0
 content_margin_right = 16.0
 content_margin_top = 16.0
 content_margin_bottom = -4.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 draw_center = false
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.6125, 0.6125, 0.6125, 1 )
+border_color = Color( 0.600586, 0.595703, 0.59082, 1 )
 
 [sub_resource type="StyleBoxFlat" id=13]
 resource_name = "StyleInfo3DViewport"
@@ -156,8 +156,8 @@ content_margin_left = 16.0
 content_margin_right = 16.0
 content_margin_top = 16.0
 content_margin_bottom = -4.0
-bg_color = Color( 0.98, 0.98, 0.98, 0.5 )
-border_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 0.5 )
+border_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 
 [sub_resource type="StyleBoxFlat" id=14]
 resource_name = "StyleMenuHoverBorder"
@@ -165,10 +165,10 @@ content_margin_left = 6.0
 content_margin_right = 6.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-bg_color = Color( 0.784, 0.078, 0.078, 1 )
+bg_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 draw_center = false
 border_width_bottom = 1
-border_color = Color( 0.392, 0.039, 0.039, 1 )
+border_color = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
 
 [sub_resource type="StyleBoxFlat" id=15]
 resource_name = "StyleMenu"
@@ -176,7 +176,7 @@ content_margin_left = 6.0
 content_margin_right = 6.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-bg_color = Color( 0.784, 0.078, 0.078, 1 )
+bg_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 draw_center = false
 border_color = Color( 0, 0, 0, 0 )
 
@@ -186,8 +186,8 @@ content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
-bg_color = Color( 0.784, 0.078, 0.078, 1 )
-border_color = Color( 0.784, 0.078, 0.078, 1 )
+bg_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
+border_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxFlat" id=17]
@@ -196,11 +196,11 @@ content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
-border_color = Color( 0.784, 0.078, 0.078, 1 )
+border_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxEmpty" id=18]
@@ -232,8 +232,8 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.98112, 0.85404, 0.01404, 1.2 )
-shadow_color = Color( 0.98112, 0.85404, 0.01404, 0.12 )
+border_color = Color( 0.920859, 0.850547, 0.0105469, 1.02 )
+shadow_color = Color( 0.920859, 0.850547, 0.0105469, 0.102 )
 shadow_size = 8
 
 [sub_resource type="StyleBoxFlat" id=22]
@@ -284,8 +284,8 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 1.49328, 0.01326, 0.01326, 1.7 )
-shadow_color = Color( 1.49328, 0.01326, 0.01326, 0.34 )
+border_color = Color( 1.43637, 0.00996094, 0.00996094, 1.53 )
+shadow_color = Color( 1.43637, 0.00996094, 0.00996094, 0.306 )
 shadow_size = 8
 
 [sub_resource type="StyleBoxFlat" id=26]
@@ -298,7 +298,7 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.392, 0.039, 0.039, 0.9 )
+border_color = Color( 0.224609, 0.0292969, 0.0292969, 0.9 )
 shadow_size = 8
 
 [sub_resource type="StyleBoxFlat" id=27]
@@ -306,35 +306,35 @@ content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
-bg_color = Color( 0.784, 0.078, 0.078, 1 )
+bg_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 
 [sub_resource type="StyleBoxFlat" id=28]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
-bg_color = Color( 0.944, 0.078, 0.078, 1 )
+bg_color = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
 
 [sub_resource type="StyleBoxFlat" id=29]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
-bg_color = Color( 0.392, 0.039, 0.039, 1 )
+bg_color = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
 
 [sub_resource type="StyleBoxFlat" id=30]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 
 [sub_resource type="StyleBoxFlat" id=31]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 
 [sub_resource type="StyleBoxLine" id=32]
 color = Color( 0, 0, 0, 0.1 )
@@ -344,14 +344,14 @@ content_margin_left = 0.0
 content_margin_right = 0.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
-bg_color = Color( 0.735, 0.735, 0.735, 1 )
+bg_color = Color( 0.720703, 0.714844, 0.708984, 1 )
 
 [sub_resource type="StyleBoxFlat" id=34]
 content_margin_left = 0.0
 content_margin_right = 0.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
-bg_color = Color( 0.49, 0.49, 0.49, 1 )
+bg_color = Color( 0.480469, 0.476562, 0.472656, 1 )
 
 [sub_resource type="StyleBoxTexture" id=35]
 texture = ExtResource( 30 )
@@ -367,12 +367,12 @@ content_margin_left = 16.0
 content_margin_right = 16.0
 content_margin_top = 16.0
 content_margin_bottom = -4.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.784, 0.078, 0.078, 1 )
+border_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 
 [sub_resource type="StyleBoxFlat" id=37]
 resource_name = "StyleItemlistCursor"
@@ -380,7 +380,7 @@ content_margin_left = 16.0
 content_margin_right = 16.0
 content_margin_top = 16.0
 content_margin_bottom = -4.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 draw_center = false
 border_width_left = 1
 border_width_top = 1
@@ -395,7 +395,7 @@ content_margin_right = 16.0
 content_margin_top = 16.0
 content_margin_bottom = -4.0
 bg_color = Color( 0, 0, 0, 0.2 )
-border_color = Color( 0.98, 0.98, 0.98, 1 )
+border_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 
 [sub_resource type="StyleBoxFlat" id=39]
 resource_name = "StyleTreeFocus"
@@ -404,7 +404,7 @@ content_margin_right = 16.0
 content_margin_top = 16.0
 content_margin_bottom = -4.0
 bg_color = Color( 0, 0, 0, 0.2 )
-border_color = Color( 0.98, 0.98, 0.98, 1 )
+border_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=40]
 content_margin_left = 0.0
@@ -418,12 +418,12 @@ content_margin_left = 16.0
 content_margin_right = 16.0
 content_margin_top = 16.0
 content_margin_bottom = -4.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.98, 0.98, 0.98, 1 )
+border_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 
 [sub_resource type="StyleBoxFlat" id=42]
 resource_name = "StyleMenuHoverBG"
@@ -431,7 +431,7 @@ content_margin_left = 6.0
 content_margin_right = 6.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-bg_color = Color( 0.735, 0.735, 0.735, 1 )
+bg_color = Color( 0.720703, 0.714844, 0.708984, 1 )
 border_color = Color( 0, 0, 0, 0 )
 
 [sub_resource type="StyleBoxFlat" id=43]
@@ -440,12 +440,12 @@ content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 8.0
 content_margin_bottom = 8.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.735, 0.735, 0.735, 1 )
+border_color = Color( 0.720703, 0.714844, 0.708984, 1 )
 shadow_size = 2
 shadow_offset = Vector2( 2, 2 )
 
@@ -458,12 +458,12 @@ grow_end = 7.0
 [sub_resource type="StyleBoxFlat" id=45]
 content_margin_left = 0.0
 content_margin_right = 0.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 
 [sub_resource type="StyleBoxFlat" id=46]
 content_margin_left = 0.0
 content_margin_right = 0.0
-bg_color = Color( 0.784, 0.078, 0.078, 1 )
+bg_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=47]
 
@@ -473,12 +473,12 @@ content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.784, 0.078, 0.078, 1 )
+border_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=49]
 content_margin_left = 0.0
@@ -531,8 +531,8 @@ content_margin_left = 16.0
 content_margin_right = 16.0
 content_margin_top = 16.0
 content_margin_bottom = -4.0
-bg_color = Color( 0.735, 0.735, 0.735, 1 )
-border_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.720703, 0.714844, 0.708984, 1 )
+border_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 
 [sub_resource type="StyleBoxFlat" id=56]
 resource_name = "StyleTreeCursor"
@@ -540,13 +540,13 @@ content_margin_left = 16.0
 content_margin_right = 16.0
 content_margin_top = 16.0
 content_margin_bottom = -4.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 draw_center = false
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.735, 0.735, 0.735, 1 )
+border_color = Color( 0.720703, 0.714844, 0.708984, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=57]
 
@@ -558,8 +558,8 @@ content_margin_left = 16.0
 content_margin_right = 16.0
 content_margin_top = 16.0
 content_margin_bottom = -4.0
-bg_color = Color( 0.49, 0.49, 0.49, 1 )
-border_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.480469, 0.476562, 0.472656, 1 )
+border_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 
 [sub_resource type="StyleBoxLine" id=60]
 color = Color( 0, 0, 0, 0.1 )
@@ -570,14 +570,14 @@ content_margin_left = 0.0
 content_margin_right = 0.0
 content_margin_top = 4.0
 content_margin_bottom = -2.0
-bg_color = Color( 0.735, 0.735, 0.735, 1 )
+bg_color = Color( 0.720703, 0.714844, 0.708984, 1 )
 
 [sub_resource type="StyleBoxFlat" id=62]
 content_margin_left = 0.0
 content_margin_right = 0.0
 content_margin_top = 4.0
 content_margin_bottom = -2.0
-bg_color = Color( 0.49, 0.49, 0.49, 1 )
+bg_color = Color( 0.480469, 0.476562, 0.472656, 1 )
 
 [sub_resource type="StyleBoxTexture" id=63]
 texture = ExtResource( 20 )
@@ -593,12 +593,12 @@ content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 8.0
 content_margin_bottom = 8.0
-bg_color = Color( 0.98, 0.98, 0.98, 1 )
+bg_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 border_width_left = 1
 border_width_top = 26
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color( 0.784, 0.078, 0.078, 1 )
+border_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 expand_margin_top = 26.0
 shadow_size = 2
 shadow_offset = Vector2( 2, 2 )
@@ -606,12 +606,12 @@ shadow_offset = Vector2( 2, 2 )
 [resource]
 default_font = SubResource( 20 )
 BoxContainer/constants/separation = 4
-Button/colors/font_color = Color( 0.98, 0.98, 0.98, 1 )
-Button/colors/font_color_disabled = Color( 0.98, 0.98, 0.98, 1 )
-Button/colors/font_color_hover = Color( 0.784, 0.078, 0.078, 1 )
-Button/colors/font_color_pressed = Color( 0.392, 0.039, 0.039, 1 )
-Button/colors/icon_color_hover = Color( 0.944, 0.078, 0.078, 1 )
-Button/colors/icon_color_pressed = Color( 0.392, 0.039, 0.039, 1 )
+Button/colors/font_color = Color( 0.960938, 0.953125, 0.945312, 1 )
+Button/colors/font_color_disabled = Color( 0.960938, 0.953125, 0.945312, 1 )
+Button/colors/font_color_hover = Color( 0.449219, 0.0585938, 0.0585938, 1 )
+Button/colors/font_color_pressed = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
+Button/colors/icon_color_hover = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
+Button/colors/icon_color_pressed = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
 Button/fonts/font = SubResource( 1 )
 Button/styles/disabled = SubResource( 2 )
 Button/styles/focus = SubResource( 3 )
@@ -619,11 +619,11 @@ Button/styles/hover = SubResource( 4 )
 Button/styles/normal = SubResource( 5 )
 Button/styles/pressed = SubResource( 6 )
 ButtonGroup/styles/panel = SubResource( 7 )
-CheckBox/colors/font_color = Color( 0.784, 0.078, 0.078, 1 )
-CheckBox/colors/font_color_disabled = Color( 0.49, 0.49, 0.49, 1 )
-CheckBox/colors/font_color_hover = Color( 0.944, 0.078, 0.078, 1 )
-CheckBox/colors/font_color_pressed = Color( 0.392, 0.039, 0.039, 1 )
-CheckBox/colors/icon_color_hover = Color( 0.944, 0.078, 0.078, 1 )
+CheckBox/colors/font_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
+CheckBox/colors/font_color_disabled = Color( 0.480469, 0.476562, 0.472656, 0.5 )
+CheckBox/colors/font_color_hover = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
+CheckBox/colors/font_color_pressed = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
+CheckBox/colors/icon_color_hover = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
 CheckBox/constants/check_vadjust = 0
 CheckBox/constants/hseparation = 4
 CheckBox/fonts/font = SubResource( 1 )
@@ -635,11 +635,11 @@ CheckBox/styles/disabled = SubResource( 8 )
 CheckBox/styles/hover = SubResource( 8 )
 CheckBox/styles/normal = SubResource( 8 )
 CheckBox/styles/pressed = SubResource( 8 )
-CheckButton/colors/font_color = Color( 0.784, 0.078, 0.078, 1 )
-CheckButton/colors/font_color_disabled = Color( 0.49, 0.49, 0.49, 1 )
-CheckButton/colors/font_color_hover = Color( 0.944, 0.078, 0.078, 1 )
-CheckButton/colors/font_color_pressed = Color( 0.392, 0.039, 0.039, 1 )
-CheckButton/colors/icon_color_hover = Color( 0.944, 0.078, 0.078, 1 )
+CheckButton/colors/font_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
+CheckButton/colors/font_color_disabled = Color( 0.480469, 0.476562, 0.472656, 0.5 )
+CheckButton/colors/font_color_hover = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
+CheckButton/colors/font_color_pressed = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
+CheckButton/colors/icon_color_hover = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
 CheckButton/constants/check_vadjust = 0
 CheckButton/constants/hseparation = 4
 CheckButton/fonts/font = SubResource( 1 )
@@ -669,11 +669,11 @@ ColorPickerButton/styles/focus = SubResource( 2 )
 ColorPickerButton/styles/hover = SubResource( 4 )
 ColorPickerButton/styles/normal = SubResource( 5 )
 ColorPickerButton/styles/pressed = SubResource( 6 )
-Editor/colors/grid_major_color = Color( 0.49, 0.49, 0.49, 0.15 )
+Editor/colors/grid_major_color = Color( 0.480469, 0.476562, 0.472656, 0.15 )
 Editor/colors/grid_minor_color = Color( 0, 0, 0, 0.07 )
-Editor/colors/prop_category = Color( 0.6468, 0.6468, 0.6468, 1 )
-Editor/colors/prop_section = Color( 0.66885, 0.66885, 0.66885, 1 )
-Editor/colors/prop_subsection = Color( 0.6909, 0.6909, 0.6909, 1 )
+Editor/colors/prop_category = Color( 0.634219, 0.629063, 0.623906, 1 )
+Editor/colors/prop_section = Color( 0.65584, 0.650508, 0.645176, 1 )
+Editor/colors/prop_subsection = Color( 0.677461, 0.671953, 0.666445, 1 )
 Editor/constants/scale = 1
 EditorAbout/styles/panel = SubResource( 9 )
 EditorHelp/colors/headline_color = Color( 0, 0, 0, 1 )
@@ -689,11 +689,11 @@ EditorStyles/styles/SceneTabBG = SubResource( 16 )
 EditorStyles/styles/SceneTabFG = SubResource( 17 )
 EditorStyles/styles/ScriptEditor = SubResource( 18 )
 EditorStyles/styles/ScriptEditorPanel = SubResource( 19 )
-FileDialog/colors/files_disabled = Color( 0.49, 0.49, 0.49, 1 )
+FileDialog/colors/files_disabled = Color( 0.480469, 0.476562, 0.472656, 0.5 )
 FileDialog/icons/folder = ExtResource( 5 )
 Fonts/fonts/large = SubResource( 20 )
 Fonts/fonts/normal = SubResource( 1 )
-GraphEdit/colors/grid_major = Color( 0.49, 0.49, 0.49, 0.15 )
+GraphEdit/colors/grid_major = Color( 0.480469, 0.476562, 0.472656, 0.15 )
 GraphEdit/colors/grid_minor = Color( 0, 0, 0, 0.07 )
 GraphEdit/constants/bezier_len_neg = 160
 GraphEdit/constants/bezier_len_pos = 80
@@ -739,8 +739,8 @@ HSplitContainer/constants/separation = 8
 HSplitContainer/icons/grabber = ExtResource( 26 )
 HSplitContainer/styles/bg = SubResource( 35 )
 Icons/icons/close = ExtResource( 3 )
-ItemList/colors/font_color = Color( 0.784, 0.078, 0.078, 1 )
-ItemList/colors/font_color_selected = Color( 0.98, 0.98, 0.98, 1 )
+ItemList/colors/font_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
+ItemList/colors/font_color_selected = Color( 0.960938, 0.953125, 0.945312, 1 )
 ItemList/colors/guide_color = Color( 0, 0, 0, 0.05 )
 ItemList/constants/hseparation = 2
 ItemList/constants/icon_margin = 4
@@ -753,7 +753,7 @@ ItemList/styles/cursor = SubResource( 37 )
 ItemList/styles/cursor_unfocused = SubResource( 37 )
 ItemList/styles/selected = SubResource( 38 )
 ItemList/styles/selected_focus = SubResource( 39 )
-Label/colors/font_color = Color( 0.784, 0.078, 0.078, 1 )
+Label/colors/font_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
 Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 Label/constants/line_spacing = 3
@@ -762,17 +762,17 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = SubResource( 1 )
 Label/styles/normal = SubResource( 40 )
-LineEdit/colors/cursor_color = Color( 0.784, 0.078, 0.078, 1 )
-LineEdit/colors/font_color = Color( 0.784, 0.078, 0.078, 1 )
-LineEdit/colors/read_only = Color( 0.49, 0.49, 0.49, 1 )
-LineEdit/colors/selection_color = Color( 0.784, 0.078, 0.078, 1 )
+LineEdit/colors/cursor_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
+LineEdit/colors/font_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
+LineEdit/colors/read_only = Color( 0.480469, 0.476562, 0.472656, 0.5 )
+LineEdit/colors/selection_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 LineEdit/fonts/font = SubResource( 1 )
 LineEdit/styles/focus = SubResource( 4 )
 LineEdit/styles/normal = SubResource( 4 )
 LineEdit/styles/read_only = SubResource( 2 )
-LinkButton/colors/font_color = Color( 0.98, 0.98, 0.98, 1 )
-LinkButton/colors/font_color_hover = Color( 0.944, 0.078, 0.078, 1 )
-LinkButton/colors/font_color_pressed = Color( 0.392, 0.039, 0.039, 1 )
+LinkButton/colors/font_color = Color( 0.960938, 0.953125, 0.945312, 1 )
+LinkButton/colors/font_color_hover = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
+LinkButton/colors/font_color_pressed = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
 LinkButton/constants/underline_spacing = 2
 LinkButton/fonts/font = SubResource( 1 )
 LinkButton/styles/focus = SubResource( 12 )
@@ -780,10 +780,10 @@ MarginContainer/constants/margin_bottom = 0
 MarginContainer/constants/margin_left = 0
 MarginContainer/constants/margin_right = 0
 MarginContainer/constants/margin_top = 0
-MenuButton/colors/font_color = Color( 0.98, 0.98, 0.98, 1 )
-MenuButton/colors/font_color_disabled = Color( 0.49, 0.49, 0.49, 1 )
-MenuButton/colors/font_color_hover = Color( 0.944, 0.078, 0.078, 1 )
-MenuButton/colors/font_color_pressed = Color( 0.392, 0.039, 0.039, 1 )
+MenuButton/colors/font_color = Color( 0.960938, 0.953125, 0.945312, 1 )
+MenuButton/colors/font_color_disabled = Color( 0.480469, 0.476562, 0.472656, 0.5 )
+MenuButton/colors/font_color_hover = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
+MenuButton/colors/font_color_pressed = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
 MenuButton/constants/hseparation = 3
 MenuButton/fonts/font = SubResource( 1 )
 MenuButton/styles/disabled = SubResource( 2 )
@@ -791,11 +791,11 @@ MenuButton/styles/focus = SubResource( 3 )
 MenuButton/styles/hover = SubResource( 4 )
 MenuButton/styles/normal = SubResource( 5 )
 MenuButton/styles/pressed = SubResource( 6 )
-OptionButton/colors/font_color = Color( 0.98, 0.98, 0.98, 1 )
-OptionButton/colors/font_color_disabled = Color( 0.49, 0.49, 0.49, 1 )
-OptionButton/colors/font_color_hover = Color( 0.944, 0.078, 0.078, 1 )
-OptionButton/colors/font_color_pressed = Color( 0.392, 0.039, 0.039, 1 )
-OptionButton/colors/icon_color_hover = Color( 0.944, 0.078, 0.078, 1 )
+OptionButton/colors/font_color = Color( 0.960938, 0.953125, 0.945312, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.480469, 0.476562, 0.472656, 0.5 )
+OptionButton/colors/font_color_hover = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
+OptionButton/colors/font_color_pressed = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
+OptionButton/colors/icon_color_hover = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
 OptionButton/constants/arrow_margin = 4
 OptionButton/constants/modulate_arrow = 1
 OptionButton/fonts/font = SubResource( 1 )
@@ -807,10 +807,10 @@ OptionButton/styles/normal = SubResource( 5 )
 OptionButton/styles/pressed = SubResource( 6 )
 Panel/styles/panel = SubResource( 41 )
 PanelContainer/styles/panel = SubResource( 15 )
-PopupMenu/colors/font_color = Color( 0.784, 0.078, 0.078, 1 )
-PopupMenu/colors/font_color_accel = Color( 0.49, 0.49, 0.49, 1 )
-PopupMenu/colors/font_color_disabled = Color( 0.49, 0.49, 0.49, 1 )
-PopupMenu/colors/font_color_hover = Color( 0.98, 0.98, 0.98, 1 )
+PopupMenu/colors/font_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.480469, 0.476562, 0.472656, 0.5 )
+PopupMenu/colors/font_color_disabled = Color( 0.480469, 0.476562, 0.472656, 0.5 )
+PopupMenu/colors/font_color_hover = Color( 0.960938, 0.953125, 0.945312, 1 )
 PopupMenu/constants/vseparation = 4
 PopupMenu/fonts/font = SubResource( 1 )
 PopupMenu/icons/checked = ExtResource( 13 )
@@ -829,13 +829,13 @@ PopupMenu/styles/panel = SubResource( 43 )
 PopupMenu/styles/pressed = SubResource( 15 )
 PopupMenu/styles/separator = SubResource( 44 )
 PopupPanel/styles/panel = SubResource( 43 )
-ProgressBar/colors/font_color = Color( 0.98, 0.98, 0.98, 1 )
+ProgressBar/colors/font_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = SubResource( 1 )
 ProgressBar/styles/bg = SubResource( 45 )
 ProgressBar/styles/fg = SubResource( 46 )
 ProjectSettingsEditor/styles/panel = SubResource( 9 )
-RichTextLabel/colors/default_color = Color( 0.98, 0.98, 0.98, 1 )
+RichTextLabel/colors/default_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 RichTextLabel/fonts/bold_font = SubResource( 1 )
 RichTextLabel/fonts/bold_italics_font = SubResource( 1 )
 RichTextLabel/fonts/italics_font = SubResource( 1 )
@@ -845,8 +845,8 @@ RichTextLabel/styles/focus = SubResource( 47 )
 RichTextLabel/styles/normal = SubResource( 5 )
 ScrollContainer/styles/bg = null
 SpinBox/icons/updown = ExtResource( 18 )
-TabContainer/colors/font_color_bg = Color( 0.98, 0.98, 0.98, 1 )
-TabContainer/colors/font_color_fg = Color( 0.784, 0.078, 0.078, 1 )
+TabContainer/colors/font_color_bg = Color( 0.960938, 0.953125, 0.945312, 1 )
+TabContainer/colors/font_color_fg = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 TabContainer/constants/side_margin = 0
 TabContainer/fonts/font = SubResource( 1 )
 TabContainer/icons/decrement = ExtResource( 15 )
@@ -858,8 +858,8 @@ TabContainer/icons/menu_highlight = ExtResource( 10 )
 TabContainer/styles/panel = SubResource( 48 )
 TabContainer/styles/tab_bg = SubResource( 16 )
 TabContainer/styles/tab_fg = SubResource( 17 )
-Tabs/colors/font_color_bg = Color( 0.98, 0.98, 0.98, 1 )
-Tabs/colors/font_color_fg = Color( 0.784, 0.078, 0.078, 1 )
+Tabs/colors/font_color_bg = Color( 0.960938, 0.953125, 0.945312, 1 )
+Tabs/colors/font_color_fg = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 Tabs/constants/hseparation = 4
 Tabs/fonts/font = SubResource( 1 )
 Tabs/icons/close = ExtResource( 3 )
@@ -871,33 +871,33 @@ Tabs/styles/button = SubResource( 15 )
 Tabs/styles/button_pressed = SubResource( 15 )
 Tabs/styles/tab_bg = SubResource( 16 )
 Tabs/styles/tab_fg = SubResource( 17 )
-TextEdit/colors/caret_color = Color( 0.784, 0.078, 0.078, 1 )
-TextEdit/colors/font_color = Color( 0.98, 0.98, 0.98, 1 )
-TextEdit/colors/selection_color = Color( 0.784, 0.078, 0.078, 1 )
+TextEdit/colors/caret_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
+TextEdit/colors/font_color = Color( 0.960938, 0.953125, 0.945312, 1 )
+TextEdit/colors/selection_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
 TextEdit/fonts/font = SubResource( 1 )
 TextEdit/icons/tab = ExtResource( 17 )
 TextEdit/styles/focus = SubResource( 6 )
 TextEdit/styles/normal = SubResource( 6 )
 TextEdit/styles/read_only = SubResource( 2 )
-ToolButton/colors/font_color = Color( 0.784, 0.078, 0.078, 1 )
-ToolButton/colors/font_color_hover = Color( 0.944, 0.078, 0.078, 1 )
-ToolButton/colors/font_color_pressed = Color( 0.392, 0.039, 0.039, 1 )
+ToolButton/colors/font_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
+ToolButton/colors/font_color_hover = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
+ToolButton/colors/font_color_pressed = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
 ToolButton/fonts/font = SubResource( 1 )
 ToolButton/styles/disabled = SubResource( 49 )
 ToolButton/styles/focus = SubResource( 50 )
 ToolButton/styles/hover = SubResource( 51 )
 ToolButton/styles/normal = SubResource( 52 )
 ToolButton/styles/pressed = SubResource( 53 )
-TooltipLabel/colors/font_color = Color( 0.02, 0.02, 0.02, 1 )
+TooltipLabel/colors/font_color = Color( 0.0390625, 0.046875, 0.0546875, 1 )
 TooltipLabel/colors/font_color_shadow = Color( 1, 1, 1, 0.1 )
 TooltipLabel/fonts/font = SubResource( 1 )
 TooltipPanel/styles/panel = SubResource( 54 )
-Tree/colors/custom_button_font_highlight = Color( 0.944, 0.078, 0.078, 1 )
-Tree/colors/drop_position_color = Color( 0.392, 0.039, 0.039, 1 )
-Tree/colors/font_color = Color( 0.784, 0.078, 0.078, 1 )
-Tree/colors/font_color_selected = Color( 0.98, 0.98, 0.98, 1 )
+Tree/colors/custom_button_font_highlight = Color( 0.494141, 0.0644531, 0.0644531, 1.1 )
+Tree/colors/drop_position_color = Color( 0.224609, 0.0292969, 0.0292969, 0.5 )
+Tree/colors/font_color = Color( 0.449219, 0.0585938, 0.0585938, 1 )
+Tree/colors/font_color_selected = Color( 0.960938, 0.953125, 0.945312, 1 )
 Tree/colors/guide_color = Color( 0, 0, 0, 0.05 )
-Tree/colors/title_button_color = Color( 0.98, 0.98, 0.98, 1 )
+Tree/colors/title_button_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 Tree/constants/button_margin = 4
 Tree/constants/draw_relationship_lines = 0
 Tree/constants/guide_width = 1
@@ -946,7 +946,7 @@ VSlider/styles/slider = SubResource( 62 )
 VSplitContainer/constants/separation = 8
 VSplitContainer/icons/grabber = ExtResource( 25 )
 VSplitContainer/styles/bg = SubResource( 63 )
-WindowDialog/colors/title_color = Color( 0.98, 0.98, 0.98, 1 )
+WindowDialog/colors/title_color = Color( 0.960938, 0.953125, 0.945312, 1 )
 WindowDialog/constants/close_h_ofs = 22
 WindowDialog/constants/close_v_ofs = 20
 WindowDialog/constants/title_height = 24
