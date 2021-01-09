@@ -1092,5 +1092,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	style_info_3d_viewport.set_bg_color(style_info_3d_viewport.get_bg_color() * Color(1, 1, 1, 0.5))
 	style_info_3d_viewport.set_border_width_all(0)
 	theme.set_stylebox("Information3dViewport", "EditorStyles", style_info_3d_viewport)
+	
+	theme.set_color("modulate_color", "Global", EMOTE_PRIMARY_COLOR)
 
 	return theme
