@@ -693,6 +693,7 @@ FileDialog/colors/files_disabled = Color( 0.480469, 0.476562, 0.472656, 0.5 )
 FileDialog/icons/folder = ExtResource( 5 )
 Fonts/fonts/large = SubResource( 20 )
 Fonts/fonts/normal = SubResource( 1 )
+Global/colors/modulate_color = Color( 0.45098, 0.0588235, 0.0588235, 1 )
 GraphEdit/colors/grid_major = Color( 0.480469, 0.476562, 0.472656, 0.15 )
 GraphEdit/colors/grid_minor = Color( 0, 0, 0, 0.07 )
 GraphEdit/constants/bezier_len_neg = 160
