@@ -247,6 +247,13 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	var icon_gui_dropdown = load_scaled_image(
 		"res://addon/emote_theme/icons/icon_gui_dropdown.svg", p_scale
 	)
+	
+	var icon_gui_v_tick = load_scaled_image(
+		"res://addons/emote_theme/icons/icon_gui_v_tick.svg", p_scale
+	)
+	var icon_gui_h_tick = load_scaled_image(
+		"res://addons/emote_theme/icons/icon_gui_h_tick.svg", p_scale
+	)
 
 	var border_width = 1 * p_scale
 
@@ -664,11 +671,11 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# Scrollbars
 
-	var scroll_stylebox = make_flat_stylebox(DEFAULT_BASE_COLOR, p_scale, 5, 5, 5, 5)
-	var scroll_focus_stylebox = make_flat_stylebox(DEFAULT_BASE_COLOR, p_scale, 5, 5, 5, 5)
-	var grabber_stylebox = make_flat_stylebox(EMOTE_PRIMARY_COLOR, p_scale, 5, 5, 5, 5)
-	var grabber_highlight_stylebox = make_flat_stylebox(EMOTE_PRIMARY_COLOR_BRIGHT, p_scale, 5, 5, 5, 5)
-	var grabber_pressed_stylebox = make_flat_stylebox(EMOTE_PRIMARY_COLOR_DARK, p_scale, 5, 5, 5, 5)
+	var scroll_stylebox = make_flat_stylebox(DEFAULT_BASE_COLOR, p_scale, 5.0, 5.0, 5.0, 5.0)
+	var scroll_focus_stylebox = make_flat_stylebox(DEFAULT_BASE_COLOR, p_scale, 5.0, 5.0, 5.0, 5.0)
+	var grabber_stylebox = make_flat_stylebox(EMOTE_PRIMARY_COLOR, p_scale, 5.0, 5.0, 5.0, 5.0)
+	var grabber_highlight_stylebox = make_flat_stylebox(EMOTE_PRIMARY_COLOR_BRIGHT, p_scale, 5.0, 5.0, 5.0, 5.0)
+	var grabber_pressed_stylebox = make_flat_stylebox(EMOTE_PRIMARY_COLOR_DARK, p_scale, 5.0, 5.0, 5.0, 5.0)
 
 	# HScrollBar
 	theme.set_stylebox("scroll", "HScrollBar", scroll_stylebox)
@@ -699,32 +706,43 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	theme.set_icon("grabber", "HSlider", icon_gui_slider_grabber)
 	theme.set_icon("grabber_highlight", "HSlider", icon_gui_slider_grabber_hl)
+	theme.set_icon("tick", "HSlider", icon_gui_h_tick)
 	theme.set_stylebox(
 		"slider",
 		"HSlider",
-		make_flat_stylebox(dark_color_3, 0, DEFAULT_MARGIN_SIZE / 2, 0, DEFAULT_MARGIN_SIZE / 2)
+		make_flat_stylebox(EMOTE_SECONDARY_COLOR, p_scale, 2.0, 2.0, 2.0, 2.0)
 	)
 	theme.set_stylebox(
 		"grabber_area",
 		"HSlider",
-		make_flat_stylebox(contrast_color_1, 0, DEFAULT_MARGIN_SIZE / 2, 0, DEFAULT_MARGIN_SIZE / 2)
+		make_flat_stylebox(EMOTE_PRIMARY_COLOR, p_scale, 2.0, 2.0, 2.0, 2.0)
+	)
+	theme.set_stylebox(
+		"grabber_area_highlight",
+		"HSlider",
+		make_flat_stylebox(EMOTE_PRIMARY_COLOR_BRIGHT, p_scale, 2.0, 2.0, 2.0, 2.0)
 	)
 
 	# VSlider
 
 	theme.set_icon("grabber", "VSlider", icon_gui_slider_grabber)
 	theme.set_icon("grabber_highlight", "VSlider", icon_gui_slider_grabber_hl)
+	theme.set_icon("tick", "VSlider", icon_gui_v_tick)
 	theme.set_stylebox(
 		"slider",
 		"VSlider",
-		make_flat_stylebox(dark_color_3, DEFAULT_MARGIN_SIZE / 2, 0, DEFAULT_MARGIN_SIZE / 2, 0)
+		make_flat_stylebox(EMOTE_SECONDARY_COLOR, p_scale, 2.0, 2.0, 2.0, 2.0)
 	)
 	theme.set_stylebox(
 		"grabber_area",
 		"VSlider",
-		make_flat_stylebox(contrast_color_1, DEFAULT_MARGIN_SIZE / 2, 0, DEFAULT_MARGIN_SIZE / 2, 0)
+		make_flat_stylebox(EMOTE_PRIMARY_COLOR, p_scale, 2.0, 2.0, 2.0, 2.0)
 	)
-
+	theme.set_stylebox(
+		"grabber_area_highlight",
+		"VSlider",
+		make_flat_stylebox(EMOTE_PRIMARY_COLOR_BRIGHT, p_scale, 2.0, 2.0, 2.0, 2.0)
+	)
 	# SpinBox
 	theme.set_icon("updown", "SpinBox", icon_gui_spinbox_updown)
 
