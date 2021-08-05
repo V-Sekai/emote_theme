@@ -1,5 +1,5 @@
+@tool
 extends EditorScript
-tool
 
 const emote_theme_const = preload("emote_theme.gd")
 #const extended_theme_const = preload("res://addons/extended_theme/extended_theme.gd")

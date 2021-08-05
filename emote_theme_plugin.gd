@@ -1,5 +1,5 @@
+@tool
 extends EditorPlugin
-tool
 
 
 func _init():
@@ -12,5 +12,5 @@ func _notification(p_notification: int):
 			print("Destroying EmoteTheme plugin")
 
 
-func get_name():
+func _get_plugin_name():
 	return "EmoteTheme"

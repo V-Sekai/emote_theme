@@ -1,5 +1,5 @@
+@tool
 extends Node
-tool
 
 const DEFAULT_CONTRAST = 0.25
 const DEFAULT_BOX_CONTAINER_SEPERATION = 4
@@ -46,47 +46,47 @@ static func make_stylebox(
 	p_margin_right = -1,
 	p_margin_botton = -1,
 	p_draw_center = true
-):
+) -> StyleBoxTexture:
 	var style = StyleBoxTexture.new()
 	style.set_texture(p_texture)
-	style.set_margin_size(MARGIN_LEFT, p_left * p_scale)
-	style.set_margin_size(MARGIN_RIGHT, p_right * p_scale)
-	style.set_margin_size(MARGIN_BOTTOM, p_botton * p_scale)
-	style.set_margin_size(MARGIN_TOP, p_top * p_scale)
-	style.set_default_margin(MARGIN_LEFT, p_margin_left * p_scale)
-	style.set_default_margin(MARGIN_RIGHT, p_margin_right * p_scale)
-	style.set_default_margin(MARGIN_BOTTOM, p_margin_botton * p_scale)
-	style.set_default_margin(MARGIN_TOP, p_margin_top * p_scale)
+	style.set_margin_size(SIDE_LEFT, p_left * p_scale)
+	style.set_margin_size(SIDE_RIGHT, p_right * p_scale)
+	style.set_margin_size(SIDE_BOTTOM, p_botton * p_scale)
+	style.set_margin_size(SIDE_TOP, p_top * p_scale)
+	style.set_default_margin(SIDE_LEFT, p_margin_left * p_scale)
+	style.set_default_margin(SIDE_RIGHT, p_margin_right * p_scale)
+	style.set_default_margin(SIDE_BOTTOM, p_margin_botton * p_scale)
+	style.set_default_margin(SIDE_TOP, p_margin_top * p_scale)
 	style.set_draw_center(p_draw_center)
 	return style
 
 static func make_empty_stylebox(
 	p_scale, p_margin_left = -1, p_margin_top = -1, p_margin_right = -1, p_margin_bottom = -1
-):
+) -> StyleBoxEmpty:
 	var style = StyleBoxEmpty.new()
-	style.set_default_margin(MARGIN_LEFT, p_margin_left * p_scale)
-	style.set_default_margin(MARGIN_RIGHT, p_margin_right * p_scale)
-	style.set_default_margin(MARGIN_BOTTOM, p_margin_bottom * p_scale)
-	style.set_default_margin(MARGIN_TOP, p_margin_top * p_scale)
+	style.set_default_margin(SIDE_LEFT, p_margin_left * p_scale)
+	style.set_default_margin(SIDE_RIGHT, p_margin_right * p_scale)
+	style.set_default_margin(SIDE_BOTTOM, p_margin_bottom * p_scale)
+	style.set_default_margin(SIDE_TOP, p_margin_top * p_scale)
 	return style
 
 static func make_flat_stylebox(
-	p_color,
-	p_scale,
-	p_margin_left = -1,
-	p_margin_top = -1,
-	p_margin_right = -1,
-	p_margin_bottom = -1
-):
+	p_color: Color,
+	p_scale: float,
+	p_margin_left: float = -1.0,
+	p_margin_top: float = -1.0,
+	p_margin_right: float = -1.0,
+	p_margin_bottom: float = -1.0
+) -> StyleBoxFlat:
 	var style = StyleBoxFlat.new()
 	style.set_bg_color(p_color)
-	style.set_default_margin(MARGIN_LEFT, p_margin_left * p_scale)
-	style.set_default_margin(MARGIN_RIGHT, p_margin_right * p_scale)
-	style.set_default_margin(MARGIN_BOTTOM, p_margin_bottom * p_scale)
-	style.set_default_margin(MARGIN_TOP, p_margin_top * p_scale)
+	style.set_default_margin(SIDE_LEFT, p_margin_left * p_scale)
+	style.set_default_margin(SIDE_RIGHT, p_margin_right * p_scale)
+	style.set_default_margin(SIDE_BOTTOM, p_margin_bottom * p_scale)
+	style.set_default_margin(SIDE_TOP, p_margin_top * p_scale)
 	return style
 
-static func make_line_stylebox(p_color, p_scale, p_thickness = 1, p_grow = 1, p_vertical = false):
+static func make_line_stylebox(p_color: Color, p_scale: float, p_thickness: float = 1.0, p_grow: float = 1.0, p_vertical: bool = false) -> StyleBoxLine:
 	var style = StyleBoxLine.new()
 	style.set_color(p_color)
 	style.set_grow_begin(p_grow)
@@ -95,12 +95,12 @@ static func make_line_stylebox(p_color, p_scale, p_thickness = 1, p_grow = 1, p_
 	style.set_vertical(p_vertical)
 	return style
 
-static func create_font(p_data, p_size, p_scale, p_fallback = []):
-	var font = DynamicFont.new()
+static func create_font(p_data: FontData, p_size: float, p_scale: float, p_fallback: Array = []) -> Font:
+	var font = Font.new()
 	font.set_size(p_size)
 	font.set_font_data(p_data)
-	font.set_spacing(DynamicFont.SPACING_TOP, -p_scale)
-	font.set_spacing(DynamicFont.SPACING_BOTTOM, -p_scale)
+	font.set_spacing(Font.SPACING_TOP, -p_scale)
+	font.set_spacing(Font.SPACING_BOTTOM, -p_scale)
 	for fallback in p_fallback:
 		font.add_fallback(fallback)
 
@@ -108,10 +108,10 @@ static func create_font(p_data, p_size, p_scale, p_fallback = []):
 
 	return font
 
-static func register_font(p_theme, p_scale):
-	var default_regular_font_data = load("res://addons/emote_theme/fonts/roboto_mono_regular.ttf")
+static func register_font(p_theme: Theme, p_scale: float) -> Font:
+	var default_regular_font_data: FontData = load("res://addons/emote_theme/fonts/roboto_mono_regular.ttf")
 
-	var default_regular_font = create_font(
+	var default_regular_font: Font = create_font(
 		default_regular_font_data, DEFAULT_FONT_SIZE * p_scale, p_scale
 	)
 	p_theme.set_default_font(default_regular_font)
@@ -119,12 +119,13 @@ static func register_font(p_theme, p_scale):
 	return default_regular_font
 
 # Rudimentary approach - deal with a more sophisticated DPI system in the future
-static func load_scaled_image(p_path, p_scale):
-	var stream_texture = load(p_path)
+# FIXME: This doesn't use scale, and seems to be arbitrarily used to load StyleBox and Texture2D resources.
+static func load_scaled_image(p_path: String, p_scale: float) -> Resource:
+	var stream_texture: Resource = load(p_path)
 	return stream_texture
 
-static func generate_emote_theme(p_theme_class, p_scale):
-	var theme = p_theme_class.new()
+static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
+	var theme: Theme = p_theme_class.new()
 
 	# Icons
 	var icon_empty = load_scaled_image("res://addons/emote_theme/icons/icon_empty.svg", 1.0)
@@ -261,26 +262,26 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	var separator_color = Color(mono_color.r, mono_color.g, mono_color.b, 0.1)
 	var highlight_color = Color(mono_color.r, mono_color.g, mono_color.b, 0.2)
 
-	var dark_color_1 = DEFAULT_BASE_COLOR.linear_interpolate(Color(0, 0, 0, 1), DEFAULT_CONTRAST)
-	var dark_color_2 = DEFAULT_BASE_COLOR.linear_interpolate(
+	var dark_color_1 = DEFAULT_BASE_COLOR.lerp(Color(0, 0, 0, 1), DEFAULT_CONTRAST)
+	var dark_color_2 = DEFAULT_BASE_COLOR.lerp(
 		Color(0, 0, 0, 1), DEFAULT_CONTRAST * 1.5
 	)
-	var dark_color_3 = DEFAULT_BASE_COLOR.linear_interpolate(
+	var dark_color_3 = DEFAULT_BASE_COLOR.lerp(
 		Color(0, 0, 0, 1), DEFAULT_CONTRAST * 2
 	)
 
 	var background_color = dark_color_2
 
-	var contrast_color_1 = DEFAULT_BASE_COLOR.linear_interpolate(
+	var contrast_color_1 = DEFAULT_BASE_COLOR.lerp(
 		mono_color, max(DEFAULT_CONTRAST, DEFAULT_CONTRAST)
 	)
-	var contrast_color_2 = DEFAULT_BASE_COLOR.linear_interpolate(
+	var contrast_color_2 = DEFAULT_BASE_COLOR.lerp(
 		mono_color, max(DEFAULT_CONTRAST * 1.5, DEFAULT_CONTRAST * 1.5)
 	)
 
-	var success_color = DEFAULT_ACCENT_COLOR.linear_interpolate(Color(0.2, 1, 0.2), 0.6) * 1.2
-	var warning_color = DEFAULT_ACCENT_COLOR.linear_interpolate(Color(1, 1, 0), 0.7) * 1.2
-	var error_color = DEFAULT_ACCENT_COLOR.linear_interpolate(Color(1, 0, 0), 0.8) * 1.7
+	var success_color = DEFAULT_ACCENT_COLOR.lerp(Color(0.2, 1, 0.2), 0.6) * 1.2
+	var warning_color = DEFAULT_ACCENT_COLOR.lerp(Color(1, 1, 0), 0.7) * 1.2
+	var error_color = DEFAULT_ACCENT_COLOR.lerp(Color(1, 0, 0), 0.8) * 1.7
 
 	# 2d grid color
 	var grid_minor_color = mono_color * Color(1.0, 1.0, 1.0, 0.07)
@@ -318,10 +319,10 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	var style_widget = style_default.duplicate()
 	style_widget.set_border_width_all(0)
 	style_widget.set_name("StyleWidget")
-	style_widget.set_default_margin(MARGIN_LEFT, (6) * p_scale)
-	style_widget.set_default_margin(MARGIN_TOP, DEFAULT_MARGIN_SIZE * p_scale)
-	style_widget.set_default_margin(MARGIN_RIGHT, (6) * p_scale)
-	style_widget.set_default_margin(MARGIN_BOTTOM, DEFAULT_MARGIN_SIZE * p_scale)
+	style_widget.set_default_margin(SIDE_LEFT, (6) * p_scale)
+	style_widget.set_default_margin(SIDE_TOP, DEFAULT_MARGIN_SIZE * p_scale)
+	style_widget.set_default_margin(SIDE_RIGHT, (6) * p_scale)
+	style_widget.set_default_margin(SIDE_BOTTOM, DEFAULT_MARGIN_SIZE * p_scale)
 	style_widget.set_bg_color(DEFAULT_WIDGET_COLOR)
 	style_widget.set_border_color(DEFAULT_WIDGET_BORDER_COLOR)
 
@@ -351,10 +352,10 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	var style_popup = style_default.duplicate()
 	style_popup.set_name("StylePopup")
 	var popup_margin_size = DEFAULT_MARGIN_SIZE * p_scale * 2
-	style_popup.set_default_margin(MARGIN_LEFT, popup_margin_size)
-	style_popup.set_default_margin(MARGIN_TOP, popup_margin_size)
-	style_popup.set_default_margin(MARGIN_RIGHT, popup_margin_size)
-	style_popup.set_default_margin(MARGIN_BOTTOM, popup_margin_size)
+	style_popup.set_default_margin(SIDE_LEFT, popup_margin_size)
+	style_popup.set_default_margin(SIDE_TOP, popup_margin_size)
+	style_popup.set_default_margin(SIDE_RIGHT, popup_margin_size)
+	style_popup.set_default_margin(SIDE_BOTTOM, popup_margin_size)
 	style_popup.set_border_color(contrast_color_1)
 	style_popup.set_border_width_all(max(p_scale, border_width))
 	style_popup.set_shadow_color(shadow_color)
@@ -382,13 +383,13 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	var style_tab_selected = style_widget.duplicate()
 	style_tab_selected.set_name("StyleTabSelected")
 	style_tab_selected.set_border_width_all(border_width)
-	style_tab_selected.set_border_width(MARGIN_BOTTOM, 0)
+	style_tab_selected.set_border_width(SIDE_BOTTOM, 0)
 	style_tab_selected.set_border_color(DEFAULT_WIDGET_COLOR)
 	style_tab_selected.expand_margin_bottom = border_width
-	style_tab_selected.set_default_margin(MARGIN_LEFT, tab_default_margin_side)
-	style_tab_selected.set_default_margin(MARGIN_RIGHT, tab_default_margin_side)
-	style_tab_selected.set_default_margin(MARGIN_BOTTOM, tab_default_margin_vertical)
-	style_tab_selected.set_default_margin(MARGIN_TOP, tab_default_margin_vertical)
+	style_tab_selected.set_default_margin(SIDE_LEFT, tab_default_margin_side)
+	style_tab_selected.set_default_margin(SIDE_RIGHT, tab_default_margin_side)
+	style_tab_selected.set_default_margin(SIDE_BOTTOM, tab_default_margin_vertical)
+	style_tab_selected.set_default_margin(SIDE_TOP, tab_default_margin_vertical)
 	style_tab_selected.set_bg_color(DEFAULT_WIDGET_COLOR_INVERSE)
 
 	var style_tab_unselected = style_tab_selected.duplicate()
@@ -497,17 +498,17 @@ static func generate_emote_theme(p_theme_class, p_scale):
 
 	# ToolButton
 
-	theme.set_stylebox("normal", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
-	theme.set_stylebox("hover", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
-	theme.set_stylebox("pressed", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
-	theme.set_stylebox("focus", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
-	theme.set_stylebox("disabled", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("normal", "Button", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("hover", "Button", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("pressed", "Button", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("focus", "Button", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("disabled", "Button", make_empty_stylebox(0, 0, 0, 0))
 
-	theme.set_font("font", "ToolButton", default_font)
+	theme.set_font("font", "Button", default_font)
 
-	theme.set_color("font_color", "ToolButton", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
-	theme.set_color("font_color_hover", "ToolButton", DEFAULT_FONT_COLOR_HL)
-	theme.set_color("font_color_pressed", "ToolButton", DEFAULT_ACCENT_COLOR)
+	theme.set_color("font_color", "Button", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
+	theme.set_color("font_color_hover", "Button", DEFAULT_FONT_COLOR_HL)
+	theme.set_color("font_color_pressed", "Button", DEFAULT_ACCENT_COLOR)
 
 	# OptionButton
 
@@ -535,7 +536,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	style_menu_hover_border.set_name("StyleMenuHoverBorder")
 	style_menu_hover_border.set_draw_center(false)
 	style_menu_hover_border.set_border_width_all(0)
-	style_menu_hover_border.set_border_width(MARGIN_BOTTOM, border_width)
+	style_menu_hover_border.set_border_width(SIDE_BOTTOM, border_width)
 	style_menu_hover_border.set_border_color(DEFAULT_ACCENT_COLOR)
 
 	var style_menu_hover_bg = style_widget.duplicate()
@@ -755,7 +756,7 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	var style_window = style_popup.duplicate()
 	style_window.set_name("StyleWindow")
 	style_window.set_border_color(DEFAULT_WIDGET_COLOR)
-	style_window.set_border_width(MARGIN_TOP, WINDOW_TITLEBAR * p_scale)
+	style_window.set_border_width(SIDE_TOP, WINDOW_TITLEBAR * p_scale)
 	style_window.expand_margin_top = (WINDOW_TITLEBAR * p_scale)
 	theme.set_stylebox("panel", "WindowDialog", style_window)
 	theme.set_color("title_color", "WindowDialog", DEFAULT_WIDGET_FONT_COLOR)
@@ -861,9 +862,9 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	theme.set_stylebox("title_button_hover", "Tree", style_tree_title)
 	theme.set_stylebox("title_button_pressed", "Tree", style_tree_title)
 
-	var prop_category_color = dark_color_1.linear_interpolate(mono_color, 0.12)
-	var prop_section_color = dark_color_1.linear_interpolate(mono_color, 0.09)
-	var prop_subsection_color = dark_color_1.linear_interpolate(mono_color, 0.06)
+	var prop_category_color = dark_color_1.lerp(mono_color, 0.12)
+	var prop_section_color = dark_color_1.lerp(mono_color, 0.09)
+	var prop_subsection_color = dark_color_1.lerp(mono_color, 0.06)
 	theme.set_color("prop_category", "Editor", prop_category_color)
 	theme.set_color("prop_section", "Editor", prop_section_color)
 	theme.set_color("prop_subsection", "Editor", prop_subsection_color)
@@ -930,18 +931,18 @@ static func generate_emote_theme(p_theme_class, p_scale):
 	style_content_panel.set_border_color(DEFAULT_WIDGET_COLOR)
 	style_content_panel.set_border_width_all(border_width)
 	# compensate the border
-	style_content_panel.set_default_margin(MARGIN_TOP, margin_size_extra * p_scale)
-	style_content_panel.set_default_margin(MARGIN_RIGHT, margin_size_extra * p_scale)
-	style_content_panel.set_default_margin(MARGIN_BOTTOM, margin_size_extra * p_scale)
-	style_content_panel.set_default_margin(MARGIN_LEFT, margin_size_extra * p_scale)
+	style_content_panel.set_default_margin(SIDE_TOP, margin_size_extra * p_scale)
+	style_content_panel.set_default_margin(SIDE_RIGHT, margin_size_extra * p_scale)
+	style_content_panel.set_default_margin(SIDE_BOTTOM, margin_size_extra * p_scale)
+	style_content_panel.set_default_margin(SIDE_LEFT, margin_size_extra * p_scale)
 
 	# this is the stylebox used in 3d and 2d viewports (no borders)
 	var style_content_panel_vp = style_content_panel.duplicate()
 	style_content_panel_vp.set_name("StyleContentPanelVP")
-	style_content_panel_vp.set_default_margin(MARGIN_LEFT, border_width * 2)
-	style_content_panel_vp.set_default_margin(MARGIN_TOP, DEFAULT_MARGIN_SIZE * p_scale)
-	style_content_panel_vp.set_default_margin(MARGIN_RIGHT, border_width * 2)
-	style_content_panel_vp.set_default_margin(MARGIN_BOTTOM, border_width * 2)
+	style_content_panel_vp.set_default_margin(SIDE_LEFT, border_width * 2)
+	style_content_panel_vp.set_default_margin(SIDE_TOP, DEFAULT_MARGIN_SIZE * p_scale)
+	style_content_panel_vp.set_default_margin(SIDE_RIGHT, border_width * 2)
+	style_content_panel_vp.set_default_margin(SIDE_BOTTOM, border_width * 2)
 	theme.set_stylebox("panel", "TabContainer", style_content_panel)
 	theme.set_stylebox("Content", "EditorStyles", style_content_panel_vp)
 
