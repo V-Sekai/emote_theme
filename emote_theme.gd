@@ -751,21 +751,21 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 
 	theme.set_stylebox("bg", "ScrollContainer", icon_empty)
 
-	# WindowDialog
+	# Window
 
 	var style_window = style_popup.duplicate()
 	style_window.set_name("StyleWindow")
 	style_window.set_border_color(DEFAULT_WIDGET_COLOR)
 	style_window.set_border_width(SIDE_TOP, WINDOW_TITLEBAR * p_scale)
 	style_window.expand_margin_top = (WINDOW_TITLEBAR * p_scale)
-	theme.set_stylebox("panel", "WindowDialog", style_window)
-	theme.set_color("title_color", "WindowDialog", DEFAULT_WIDGET_FONT_COLOR)
-	theme.set_icon("close", "WindowDialog", icon_gui_close)
-	theme.set_icon("close_highlight", "WindowDialog", icon_gui_close)
-	theme.set_constant("close_h_ofs", "WindowDialog", 22 * p_scale)
-	theme.set_constant("close_v_ofs", "WindowDialog", 20 * p_scale)
-	theme.set_constant("title_height", "WindowDialog", 24 * p_scale)
-	theme.set_font("title_font", "WindowDialog", large_font)
+	theme.set_stylebox("panel", "Window", style_window)
+	theme.set_color("title_color", "Window", DEFAULT_WIDGET_FONT_COLOR)
+	theme.set_icon("close", "Window", icon_gui_close)
+	theme.set_icon("close_highlight", "Window", icon_gui_close)
+	theme.set_constant("close_h_ofs", "Window", 22 * p_scale)
+	theme.set_constant("close_v_ofs", "Window", 20 * p_scale)
+	theme.set_constant("title_height", "Window", 24 * p_scale)
+	theme.set_font("title_font", "Window", large_font)
 
 	# FileDialog
 
