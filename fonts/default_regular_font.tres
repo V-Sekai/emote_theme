@@ -1,8 +1,10 @@
-[gd_resource type="DynamicFont" load_steps=2 format=2]
+[gd_resource type="Font" load_steps=2 format=3 uid="uid://codj0tafbo5gr"]
 
-[ext_resource path="res://addons/emote_theme/fonts/roboto_mono_regular.ttf" type="DynamicFontData" id=1]
+[ext_resource type="FontData" uid="uid://tkgj8cntiv0i" path="res://addons/emote_theme/fonts/roboto_mono_regular.ttf" id="1"]
 
 [resource]
-extra_spacing_top = -1
-extra_spacing_bottom = -1
-font_data = ExtResource( 1 )
+variation_coordinates = {
+}
+spacing_top = -1
+spacing_bottom = -1
+data/0 = ExtResource( "1" )
