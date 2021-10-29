@@ -1,6 +1,6 @@
 [gd_resource type="Font" load_steps=2 format=3 uid="uid://codj0tafbo5gr"]
 
-[ext_resource type="FontData" uid="uid://tkgj8cntiv0i" path="res://addons/emote_theme/fonts/roboto_mono_regular.ttf" id="1"]
+[ext_resource type="FontData" uid="uid://dej4wvmqfijo2" path="res://addons/emote_theme/fonts/roboto_mono_regular.ttf" id="1"]
 
 [resource]
 variation_coordinates = {
