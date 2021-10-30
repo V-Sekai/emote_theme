@@ -97,10 +97,9 @@ static func make_line_stylebox(p_color: Color, p_scale: float, p_thickness: floa
 
 static func create_font(p_data: FontData, p_size: float, p_scale: float, p_fallback: Array = []) -> Font:
 	var font = Font.new()
-	font.set_size(p_size)
-	font.set_font_data(p_data)
-	font.set_spacing(Font.SPACING_TOP, -p_scale)
-	font.set_spacing(Font.SPACING_BOTTOM, -p_scale)
+	font.add_data(p_data)
+	font.spacing_top = -p_scale
+	font.spacing_bottom = -p_scale
 	for fallback in p_fallback:
 		font.add_fallback(fallback)
 
@@ -121,8 +120,7 @@ static func register_font(p_theme: Theme, p_scale: float) -> Font:
 # Rudimentary approach - deal with a more sophisticated DPI system in the future
 # FIXME: This doesn't use scale, and seems to be arbitrarily used to load StyleBox and Texture2D resources.
 static func load_scaled_image(p_path: String, p_scale: float) -> Resource:
-	var stream_texture: Resource = load(p_path)
-	return stream_texture
+	return load(p_path)
 
 static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 	var theme: Theme = p_theme_class.new()
@@ -148,13 +146,13 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 		"res://addons/emote_theme/icons/icon_snap_grid.svg", p_scale
 	)
 	var icon_zoom_less = load_scaled_image(
-		"res://addons/emote_theme_icons/icon_zoom_less.svg", p_scale
+		"res://addons/emote_theme/icons/icon_zoom_less.svg", p_scale
 	)
 	var icon_zoom_more = load_scaled_image(
-		"res://addons/emote_theme_icons/icon_zoom_more.svg", p_scale
+		"res://addons/emote_theme/icons/icon_zoom_more.svg", p_scale
 	)
 	var icon_zoom_reset = load_scaled_image(
-		"res://addons/emote_theme_icons/icon_zoom_reset.svg", p_scale
+		"res://addons/emote_theme/icons/icon_zoom_reset.svg", p_scale
 	)
 
 	var icon_gui_option_arrow = load_scaled_image(
@@ -228,25 +226,25 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 		"res://addons/emote_theme/icons/icon_gui_mini_checkerboard.svg", p_scale
 	)
 	var icon_gui_resizer = load_scaled_image(
-		"res://addon/emote_theme/icons/icon_gui_resizer.svg", p_scale
+		"res://addons/emote_theme/icons/icon_gui_resizer.svg", p_scale
 	)
 	var icon_gui_visibility_hidden = load_scaled_image(
-		"res://addon/emote_theme/icons/icon_gui_visibility_hidden.svg", p_scale
+		"res://addons/emote_theme/icons/icon_gui_visibility_hidden.svg", p_scale
 	)
 	var icon_gui_visibility_visible = load_scaled_image(
-		"res://addon/emote_theme/icons/icon_gui_visibility_visible.svg", p_scale
+		"res://addons/emote_theme/icons/icon_gui_visibility_visible.svg", p_scale
 	)
 	var icon_gui_visibility_xray = load_scaled_image(
-		"res://addon/emote_theme/icons/icon_gui_visibility_xray.svg", p_scale
+		"res://addons/emote_theme/icons/icon_gui_visibility_xray.svg", p_scale
 	)
 	var icon_gui_tree_updown = load_scaled_image(
-		"res://addon/emote_theme/icons/icon_gui_tree_updown.svg", p_scale
+		"res://addons/emote_theme/icons/icon_gui_tree_updown.svg", p_scale
 	)
 	var icon_gui_tree_option = load_scaled_image(
-		"res://addon/emote_theme/icons/icon_gui_tree_option.svg", p_scale
+		"res://addons/emote_theme/icons/icon_gui_tree_option.svg", p_scale
 	)
 	var icon_gui_dropdown = load_scaled_image(
-		"res://addon/emote_theme/icons/icon_gui_dropdown.svg", p_scale
+		"res://addons/emote_theme/icons/icon_gui_dropdown.svg", p_scale
 	)
 	
 	var icon_gui_v_tick = load_scaled_image(
