@@ -2,7 +2,7 @@
 extends EditorPlugin
 
 
-func _init():
+func _enable_plugin():
 	print("Initialising EmoteTheme plugin")
 
 
