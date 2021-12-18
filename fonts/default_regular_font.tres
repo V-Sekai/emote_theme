@@ -3,8 +3,6 @@
 [ext_resource type="FontData" uid="uid://dej4wvmqfijo2" path="res://addons/emote_theme/fonts/roboto_mono_regular.ttf" id="1_dt8g7"]
 
 [resource]
-variation_coordinates = {
-}
 spacing_top = -1
 spacing_bottom = -1
 data/0 = ExtResource( "1_dt8g7" )
