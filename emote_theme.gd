@@ -6,30 +6,29 @@ const DEFAULT_BOX_CONTAINER_SEPERATION = 4
 
 const WINDOW_TITLEBAR = 26
 
-const DEFAULT_MARGIN_SIZE = 4
+const DEFAULT_MARGIN_SIZE = 8
 const DEFAULT_FONT_SIZE = 16
 
-# Bug can't use HTML notation in constants
-const EMOTE_SECONDARY_COLOR = Color(246 / 256.0, 244.0 / 256.0, 242.0 / 256.0) #F6F4F2
-const EMOTE_SECONDARY_COLOR_DARK = EMOTE_SECONDARY_COLOR / 2.0
-const EMOTE_PRIMARY_COLOR = Color(115.0 / 256.0, 15.0 / 256.0, 15.0 / 256.0) #731C1C
+const EMOTE_PRIMARY_COLOR = Color("#731C1C")
 const EMOTE_PRIMARY_COLOR_BRIGHT = EMOTE_PRIMARY_COLOR * 1.1
 const EMOTE_PRIMARY_COLOR_DARK = EMOTE_PRIMARY_COLOR / 2.0
+const EMOTE_SECONDARY_COLOR = Color("#F6F4F2")
+const EMOTE_SECONDARY_COLOR_DARK = EMOTE_SECONDARY_COLOR / 2.0
 
 const DEFAULT_BASE_COLOR = EMOTE_SECONDARY_COLOR
 const DEFAULT_BG_COLOR = EMOTE_SECONDARY_COLOR
-const DEFAULT_DISABLED_BG_COLOR = EMOTE_SECONDARY_COLOR_DARK
+const DEFAULT_DISABLED_BG_COLOR = EMOTE_PRIMARY_COLOR_DARK
 const DEFAULT_DISABLED_BORDER_COLOR = Color(0.0, 0.0, 0.0, 0.0)
 
-const DEFAULT_WIDGET_COLOR = EMOTE_PRIMARY_COLOR
-const DEFAULT_WIDGET_COLOR_INVERSE = EMOTE_SECONDARY_COLOR
-const DEFAULT_WIDGET_BORDER_COLOR = Color(0.0, 0.0, 0.0, 0.0)
-const DEFAULT_WIDGET_FONT_COLOR = EMOTE_SECONDARY_COLOR
-const DEFAULT_WIDGET_FONT_COLOR_INVERSE = EMOTE_PRIMARY_COLOR
+const DEFAULT_WIDGET_COLOR = EMOTE_SECONDARY_COLOR
+const DEFAULT_WIDGET_COLOR_INVERSE = EMOTE_PRIMARY_COLOR
+const DEFAULT_WIDGET_BORDER_COLOR = EMOTE_PRIMARY_COLOR
+const DEFAULT_WIDGET_FONT_COLOR = EMOTE_PRIMARY_COLOR
+const DEFAULT_WIDGET_FONT_COLOR_INVERSE = EMOTE_SECONDARY_COLOR
 
-const DEFAULT_FONT_COLOR = EMOTE_SECONDARY_COLOR
+const DEFAULT_FONT_COLOR = EMOTE_PRIMARY_COLOR
 const DEFAULT_FONT_COLOR_HL = EMOTE_PRIMARY_COLOR_BRIGHT
-const DEFAULT_FONT_COLOR_DISABLED = EMOTE_SECONDARY_COLOR_DARK
+const DEFAULT_FONT_COLOR_DISABLED = Color("#ffffff4d")
 const DEFAULT_ACCENT_COLOR = EMOTE_PRIMARY_COLOR_DARK
 const DEFAULT_FONT_COLOR_SELECTION = EMOTE_PRIMARY_COLOR
 const DEFAULT_FONT_COLOR_HIGHLIGHT = EMOTE_PRIMARY_COLOR
@@ -95,7 +94,7 @@ static func make_line_stylebox(p_color: Color, p_scale: float, p_thickness: floa
 	style.set_vertical(p_vertical)
 	return style
 
-static func create_font(p_data: FontData, p_size: float, p_scale: float, p_fallback: Array = []) -> Font:
+static func create_font(p_data: FontData, p_scale: float, p_fallback: Array = []) -> Font:
 	var font = Font.new()
 	font.add_data(p_data)
 	font.spacing_top = -p_scale
@@ -111,7 +110,7 @@ static func register_font(p_theme: Theme, p_scale: float) -> Font:
 	var default_regular_font_data: FontData = load("res://addons/emote_theme/fonts/roboto_mono_regular.ttf")
 
 	var default_regular_font: Font = create_font(
-		default_regular_font_data, DEFAULT_FONT_SIZE * p_scale, p_scale
+		default_regular_font_data, p_scale
 	)
 	p_theme.set_default_font(default_regular_font)
 
@@ -254,7 +253,7 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 		"res://addons/emote_theme/icons/icon_gui_h_tick.svg", p_scale
 	)
 
-	var border_width = 1 * p_scale
+	var border_width = 2 * p_scale
 
 	var mono_color = Color(0, 0, 0)
 	var separator_color = Color(mono_color.r, mono_color.g, mono_color.b, 0.1)
@@ -313,13 +312,13 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 	style_default.set_border_width_all(border_width)
 	style_default.set_border_color(DEFAULT_BASE_COLOR)
 	style_default.set_draw_center(true)
-
+	
 	var style_widget = style_default.duplicate()
-	style_widget.set_border_width_all(0)
+	style_widget.set_border_width_all(border_width)
 	style_widget.set_name("StyleWidget")
-	style_widget.set_default_margin(SIDE_LEFT, (6) * p_scale)
+	style_widget.set_default_margin(SIDE_LEFT, DEFAULT_MARGIN_SIZE * p_scale)
 	style_widget.set_default_margin(SIDE_TOP, DEFAULT_MARGIN_SIZE * p_scale)
-	style_widget.set_default_margin(SIDE_RIGHT, (6) * p_scale)
+	style_widget.set_default_margin(SIDE_RIGHT, DEFAULT_MARGIN_SIZE * p_scale)
 	style_widget.set_default_margin(SIDE_BOTTOM, DEFAULT_MARGIN_SIZE * p_scale)
 	style_widget.set_bg_color(DEFAULT_WIDGET_COLOR)
 	style_widget.set_border_color(DEFAULT_WIDGET_BORDER_COLOR)
@@ -332,20 +331,24 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 	var style_widget_focus = style_widget.duplicate()
 	style_widget_focus.set_name("StyleWidgetFocus")
 	style_widget_focus.set_draw_center(false)
-	style_widget_focus.set_border_width_all(border_width)
-	style_widget_focus.set_border_color(DEFAULT_WIDGET_COLOR)
+	style_widget_focus.set_border_width_all(border_width * 2.0)
+	style_widget_focus.set_border_color(DEFAULT_WIDGET_COLOR_INVERSE)
 
 	var style_widget_pressed = style_widget.duplicate()
 	style_widget_pressed.set_name("StyleWidgetPressed")
-	style_widget_pressed.set_bg_color(DEFAULT_WIDGET_COLOR_INVERSE)
-	style_widget_pressed.set_border_color(DEFAULT_ACCENT_COLOR)
+	style_widget_pressed.set_bg_color(Color(
+			DEFAULT_WIDGET_COLOR_INVERSE.r,
+			DEFAULT_WIDGET_COLOR_INVERSE.g,
+			DEFAULT_WIDGET_COLOR_INVERSE.b,
+			0.5))
+	style_widget_pressed.set_border_color(DEFAULT_WIDGET_BORDER_COLOR)
 
 	var style_widget_hover = style_widget.duplicate()
 	style_widget_hover.set_name("StyleWidgetHover")
 	style_widget_hover.set_border_width_all(border_width)
 	style_widget_hover.set_bg_color(DEFAULT_WIDGET_COLOR_INVERSE)
-	style_widget_hover.set_border_color(DEFAULT_WIDGET_COLOR)
-	style_widget_hover.set_draw_center(false)
+	style_widget_hover.set_border_color(DEFAULT_WIDGET_COLOR_INVERSE)
+	style_widget_hover.set_draw_center(true)
 
 	var style_popup = style_default.duplicate()
 	style_popup.set_name("StylePopup")
@@ -448,28 +451,35 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 	theme.set_stylebox("disabled", "Button", style_widget_disabled)
 
 	theme.set_font("font", "Button", default_font)
+	theme.set_font_size("font_size", "Button", DEFAULT_FONT_SIZE)
 
 	theme.set_color("font_color", "Button", DEFAULT_WIDGET_FONT_COLOR)
-	theme.set_color("font_color_hover", "Button", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
-	theme.set_color("font_color_pressed", "Button", DEFAULT_ACCENT_COLOR)
-	theme.set_color("font_color_disabled", "Button", DEFAULT_FONT_COLOR)
-	theme.set_color("icon_color_hover", "Button", DEFAULT_FONT_COLOR_HL)
+	theme.set_color("font_hover_color", "Button", Color(
+		DEFAULT_WIDGET_FONT_COLOR_INVERSE.r * 0.75,
+		DEFAULT_WIDGET_FONT_COLOR_INVERSE.b * 0.75,
+		DEFAULT_WIDGET_FONT_COLOR_INVERSE.g * 0.75,
+		1.0))
+	theme.set_color("font_focus_color", "Button", DEFAULT_WIDGET_FONT_COLOR)
+	theme.set_color("font_pressed_color", "Button", DEFAULT_WIDGET_FONT_COLOR)
+	theme.set_color("font_disabled_color", "Button", DEFAULT_FONT_COLOR_DISABLED)
+	
+	theme.set_color("icon_color_hover", "Button", Color(
+		DEFAULT_WIDGET_FONT_COLOR_INVERSE.r * 0.75,
+		DEFAULT_WIDGET_FONT_COLOR_INVERSE.b * 0.75,
+		DEFAULT_WIDGET_FONT_COLOR_INVERSE.g * 0.75,
+		1.0))
+		
 	theme.set_color(
 		"icon_color_pressed",
 		"Button",
-		Color(
-			DEFAULT_ACCENT_COLOR.r,
-			DEFAULT_ACCENT_COLOR.g,
-			DEFAULT_ACCENT_COLOR.b,
-			DEFAULT_ACCENT_COLOR.a
-		)
-	)
+		DEFAULT_WIDGET_FONT_COLOR)
 
 	# LinkButton
 
 	theme.set_stylebox("focus", "LinkButton", style_focus)
 
 	theme.set_font("font", "LinkButton", default_font)
+	theme.set_font_size("font_size", "LinkButton", DEFAULT_FONT_SIZE)
 
 	theme.set_color("font_color", "LinkButton", DEFAULT_FONT_COLOR)
 	theme.set_color("font_color_pressed", "LinkButton", DEFAULT_ACCENT_COLOR)
@@ -486,6 +496,7 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 	theme.set_stylebox("focus", "ColorPickerButton", style_widget_disabled)
 
 	theme.set_font("font", "ColorPickerButton", default_font)
+	theme.set_font_size("font_size", "ColorPickerButton", DEFAULT_FONT_SIZE)
 
 	theme.set_color("font_color", "ColorPickerButton", Color(1, 1, 1, 1))
 	theme.set_color("font_color_pressed", "ColorPickerButton", Color(0.8, 0.8, 0.8, 1))
@@ -496,17 +507,19 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 
 	# ToolButton
 
-	theme.set_stylebox("normal", "Button", make_empty_stylebox(0, 0, 0, 0))
-	theme.set_stylebox("hover", "Button", make_empty_stylebox(0, 0, 0, 0))
-	theme.set_stylebox("pressed", "Button", make_empty_stylebox(0, 0, 0, 0))
-	theme.set_stylebox("focus", "Button", make_empty_stylebox(0, 0, 0, 0))
-	theme.set_stylebox("disabled", "Button", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("normal", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("hover", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("pressed", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("focus", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
+	theme.set_stylebox("disabled", "ToolButton", make_empty_stylebox(0, 0, 0, 0))
 
-	theme.set_font("font", "Button", default_font)
+	theme.set_font("font", "ToolButton", default_font)
+	theme.set_font_size("font_size", "ToolButton", DEFAULT_FONT_SIZE)
 
-	theme.set_color("font_color", "Button", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
-	theme.set_color("font_color_hover", "Button", DEFAULT_FONT_COLOR_HL)
-	theme.set_color("font_color_pressed", "Button", DEFAULT_ACCENT_COLOR)
+
+	theme.set_color("font_color", "ToolButton", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
+	theme.set_color("font_color_hover", "ToolButton", DEFAULT_FONT_COLOR_HL)
+	theme.set_color("font_color_pressed", "ToolButton", DEFAULT_ACCENT_COLOR)
 
 	# OptionButton
 
@@ -515,6 +528,9 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 	theme.set_stylebox("pressed", "OptionButton", style_widget_pressed)
 	theme.set_stylebox("focus", "OptionButton", style_widget_focus)
 	theme.set_stylebox("disabled", "OptionButton", style_widget_disabled)
+	
+	theme.set_font("font", "OptionButton", default_font)
+	theme.set_font_size("font_size", "OptionButton", DEFAULT_FONT_SIZE)
 
 	theme.set_color("font_color", "OptionButton", DEFAULT_FONT_COLOR)
 	theme.set_color("font_color_hover", "OptionButton", DEFAULT_FONT_COLOR_HL)
@@ -549,6 +565,7 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 	theme.set_stylebox("disabled", "MenuButton", style_widget_disabled)
 
 	theme.set_font("font", "MenuButton", default_font)
+	theme.set_font_size("font_size", "MenuButton", DEFAULT_FONT_SIZE)
 
 	theme.set_color("font_color", "MenuButton", DEFAULT_FONT_COLOR)
 	theme.set_color("font_color_hover", "MenuButton", DEFAULT_FONT_COLOR_HL)
@@ -619,7 +636,7 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 	theme.set_stylebox("normal", "Label", style_empty)
 	theme.set_font("font", "Label", default_font)
 
-	theme.set_color("font_color", "Label", DEFAULT_WIDGET_FONT_COLOR_INVERSE)
+	theme.set_color("font_color", "Label", DEFAULT_FONT_COLOR)
 	theme.set_color("font_color_shadow", "Label", Color(0, 0, 0, 0))
 	theme.set_color("font_outline_modulate", "Label", Color(1, 1, 1))
 
