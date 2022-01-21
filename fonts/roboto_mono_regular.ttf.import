@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/roboto_mono_regular.ttf-dbb55f637014eef9d7968
 [params]
 
 antialiased=true
-multichannel_signed_distance_field=false
+multichannel_signed_distance_field=true
 msdf_pixel_range=8
 msdf_size=48
 force_autohinter=false
