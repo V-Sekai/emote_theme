@@ -1,9 +1,12 @@
 [gd_resource type="Theme" load_steps=119 format=3 uid="uid://g5n8naam1abu"]
 
+[ext_resource type="FontData" uid="uid://dej4wvmqfijo2" path="res://addons/emote_theme/fonts/roboto_mono_regular.ttf" id="1"]
 [ext_resource type="Texture2D" uid="uid://v73rdchuo7ui" path="res://addons/emote_theme/icons/icon_gui_checked.svg" id="2_u3w6l"]
 [ext_resource type="Texture2D" uid="uid://dk2niikg3ieio" path="res://addons/emote_theme/icons/icon_gui_radio_checked.svg" id="3_yyu5k"]
 [ext_resource type="Texture2D" uid="uid://b85mp2auv48ax" path="res://addons/emote_theme/icons/icon_gui_radio_unchecked.svg" id="4_1onj7"]
 [ext_resource type="Texture2D" uid="uid://cmacy1mjkbrib" path="res://addons/emote_theme/icons/icon_gui_unchecked.svg" id="5_3i5ss"]
+[ext_resource type="Texture2D" uid="uid://f7uicj7cvu3t" path="res://addons/emote_theme/icons/icon_gui_toggle_off.svg" id="6_4fk8a"]
+[ext_resource type="Texture2D" uid="uid://djry1clc5r2ly" path="res://addons/emote_theme/icons/icon_gui_toggle_on.svg" id="7_4kmp0"]
 [ext_resource type="Texture2D" uid="uid://buk8wjm4u5igj" path="res://addons/emote_theme/icons/icon_add.svg" id="8_qtqtn"]
 [ext_resource type="Texture2D" uid="uid://gfpbklvw0pko" path="res://addons/emote_theme/icons/icon_gui_mini_checkerboard.svg" id="9_ack4v"]
 [ext_resource type="Texture2D" uid="uid://dw6t38o0l7umm" path="res://addons/emote_theme/icons/icon_color_pick.svg" id="10_xwd3p"]
@@ -40,7 +43,6 @@
 [ext_resource type="Texture2D" uid="uid://jvxsqsetlu44" path="res://addons/emote_theme/icons/icon_gui_v_tick.svg" id="41_jgxr4"]
 [ext_resource type="Texture2D" uid="uid://cktfo3cxm8he3" path="res://addons/emote_theme/icons/icon_gui_vsplitter.svg" id="42_onwbp"]
 [ext_resource type="Texture2D" uid="uid://3j5kdhmnd6dc" path="res://addons/emote_theme/icons/icon_gui_vsplit_bg.svg" id="43_detj4"]
-[ext_resource type="Font" uid="uid://codj0tafbo5gr" path="res://addons/emote_theme/fonts/default_regular_font.tres" id="43_stmhg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgs58"]
 content_margin_left = 6.0
@@ -58,7 +60,7 @@ anti_aliasing = false
 [sub_resource type="Font" id="Font_n3mvd"]
 spacing_top = -1
 spacing_bottom = -1
-data/0 = SubResource( "FontData_kug3o" )
+data/0 = ExtResource( "1" )
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ud4je"]
 content_margin_left = 9.0
