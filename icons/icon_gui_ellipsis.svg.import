@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4x56rajtjehd"
-path="res://.godot/imported/icon_gui_ellipsis.svg-13582f38c32a16ccb8d41f72ad7e0ca7.stex"
+path="res://.godot/imported/icon_gui_ellipsis.svg-13582f38c32a16ccb8d41f72ad7e0ca7.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/emote_theme/icons/icon_gui_ellipsis.svg"
-dest_files=["res://.godot/imported/icon_gui_ellipsis.svg-13582f38c32a16ccb8d41f72ad7e0ca7.stex"]
+dest_files=["res://.godot/imported/icon_gui_ellipsis.svg-13582f38c32a16ccb8d41f72ad7e0ca7.ctex"]
 
 [params]
 

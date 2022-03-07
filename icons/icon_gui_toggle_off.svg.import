@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://f7uicj7cvu3t"
-path="res://.godot/imported/icon_gui_toggle_off.svg-726e268271e449b36c1cbffd1166dce0.stex"
+path="res://.godot/imported/icon_gui_toggle_off.svg-726e268271e449b36c1cbffd1166dce0.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/emote_theme/icons/icon_gui_toggle_off.svg"
-dest_files=["res://.godot/imported/icon_gui_toggle_off.svg-726e268271e449b36c1cbffd1166dce0.stex"]
+dest_files=["res://.godot/imported/icon_gui_toggle_off.svg-726e268271e449b36c1cbffd1166dce0.ctex"]
 
 [params]
 

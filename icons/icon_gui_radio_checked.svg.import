@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dk2niikg3ieio"
-path="res://.godot/imported/icon_gui_radio_checked.svg-1fafdaf3f056b7e69b2f23627c7c934e.stex"
+path="res://.godot/imported/icon_gui_radio_checked.svg-1fafdaf3f056b7e69b2f23627c7c934e.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/emote_theme/icons/icon_gui_radio_checked.svg"
-dest_files=["res://.godot/imported/icon_gui_radio_checked.svg-1fafdaf3f056b7e69b2f23627c7c934e.stex"]
+dest_files=["res://.godot/imported/icon_gui_radio_checked.svg-1fafdaf3f056b7e69b2f23627c7c934e.ctex"]
 
 [params]
 

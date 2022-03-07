@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bewsji30gcysu"
-path="res://.godot/imported/icon_gui_option_arrow.svg-c81a02e3cf3c3f27741b890246949c76.stex"
+path="res://.godot/imported/icon_gui_option_arrow.svg-c81a02e3cf3c3f27741b890246949c76.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/emote_theme/icons/icon_gui_option_arrow.svg"
-dest_files=["res://.godot/imported/icon_gui_option_arrow.svg-c81a02e3cf3c3f27741b890246949c76.stex"]
+dest_files=["res://.godot/imported/icon_gui_option_arrow.svg-c81a02e3cf3c3f27741b890246949c76.ctex"]
 
 [params]
 
