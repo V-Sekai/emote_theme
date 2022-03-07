@@ -1,7 +1,7 @@
 [remap]
 
 importer="texture"
-type="StreamTexture2D"
+type="CompressedTexture2D"
 uid="uid://bb8wyfuwjlrpv"
 path="res://.godot/imported/icon_gui_dropdown.svg-f2db96279bf6229c18229a179165e26a.stex"
 metadata={

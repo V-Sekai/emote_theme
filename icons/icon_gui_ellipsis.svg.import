@@ -1,7 +1,7 @@
 [remap]
 
 importer="texture"
-type="StreamTexture2D"
+type="CompressedTexture2D"
 uid="uid://4x56rajtjehd"
 path="res://.godot/imported/icon_gui_ellipsis.svg-13582f38c32a16ccb8d41f72ad7e0ca7.stex"
 metadata={

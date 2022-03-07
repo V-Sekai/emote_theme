@@ -1,7 +1,7 @@
 [remap]
 
 importer="texture"
-type="StreamTexture2D"
+type="CompressedTexture2D"
 uid="uid://ceux7x8cw05om"
 path="res://.godot/imported/icon_gui_progress_bar.svg-58e1a3101f59281f87a2ee30e5c61776.stex"
 metadata={

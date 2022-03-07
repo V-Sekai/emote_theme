@@ -1,7 +1,7 @@
 [remap]
 
 importer="texture"
-type="StreamTexture2D"
+type="CompressedTexture2D"
 uid="uid://bls1qq43xnp0r"
 path="res://.godot/imported/icon_gui_spinbox_updown.svg-b156d63a25c5e9795c780d6840748842.stex"
 metadata={
