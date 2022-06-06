@@ -456,11 +456,11 @@ corner_detail = 7
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ihvd"]
 texture = ExtResource( "24_oaa8c" )
-region_rect = Rect2(0, 0, 16, 16)
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 1.0
 margin_bottom = 1.0
+region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7if81"]
 content_margin_left = 6.0
@@ -930,11 +930,11 @@ corner_detail = 7
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pno4a"]
 texture = ExtResource( "43_detj4" )
-region_rect = Rect2(0, 0, 16, 16)
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 1.0
 margin_bottom = 1.0
+region_rect = Rect2(0, 0, 16, 16)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpklu"]
 content_margin_left = 18.0
