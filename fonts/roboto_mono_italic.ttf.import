@@ -12,6 +12,7 @@ dest_files=["res://.godot/imported/roboto_mono_italic.ttf-3df6855831a3525be625ea
 
 [params]
 
+face_index=0
 antialiased=true
 generate_mipmaps=false
 multichannel_signed_distance_field=false
