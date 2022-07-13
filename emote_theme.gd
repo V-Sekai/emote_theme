@@ -94,20 +94,23 @@ static func make_line_stylebox(p_color: Color, p_scale: float, p_thickness: floa
 	style.set_vertical(p_vertical)
 	return style
 
-static func create_font(p_data: FontData, p_scale: float, p_fallback: Array = []) -> Font:
-	var font = Font.new()
-	font.add_data(p_data)
+static func create_font(p_data: Font, p_scale: float, p_fallback: Array = []) -> Font:
+	var font = FontVariation.new()
+	font.set_base_font(p_data)
 	font.spacing_top = -p_scale
 	font.spacing_bottom = -p_scale
+	var fallbacks: Array = []
 	for fallback in p_fallback:
-		font.add_fallback(fallback)
+		#font.add_fallback(fallback)
+		fallbacks.append(fallback)
+	font.fallbacks = fallbacks
 
 	ResourceSaver.save("res://addons/emote_theme/fonts/default_regular_font.tres", font)
 
 	return font
 
 static func register_font(p_theme: Theme, p_scale: float) -> Font:
-	var default_regular_font_data: FontData = load("res://addons/emote_theme/fonts/roboto_mono_regular.ttf")
+	var default_regular_font_data: Font = load("res://addons/emote_theme/fonts/roboto_mono_regular.ttf")
 
 	var default_regular_font: Font = create_font(
 		default_regular_font_data, p_scale
