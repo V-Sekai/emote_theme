@@ -105,7 +105,7 @@ static func create_font(p_data: Font, p_scale: float, p_fallback: Array = []) ->
 		fallbacks.append(fallback)
 	font.fallbacks = fallbacks
 
-	ResourceSaver.save("res://addons/emote_theme/fonts/default_regular_font.tres", font)
+	ResourceSaver.save(font, "res://addons/emote_theme/fonts/default_regular_font.tres")
 
 	return font
 
