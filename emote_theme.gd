@@ -84,14 +84,12 @@ static func make_line_stylebox(p_color: Color, p_scale: float, p_thickness: floa
 
 static func create_font(p_data: Font, p_scale: float, p_fallback: Array = []) -> Font:
 	var font = FontVariation.new()
-	font.force_autohinter = true
-	font.generate_mipmaps = true
-	font.multichannel_signed_distance_field = true
 	font.set_base_font(p_data)
 	font.spacing_top = -p_scale
 	font.spacing_bottom = -p_scale
 	var fallbacks: Array = []
 	for fallback in p_fallback:
+		#font.add_fallback(fallback)
 		fallbacks.append(fallback)
 	font.fallbacks = fallbacks
 
@@ -101,8 +99,12 @@ static func create_font(p_data: Font, p_scale: float, p_fallback: Array = []) ->
 
 
 static func register_font(p_theme: Theme, p_scale: float) -> Font:
-	# TODO: Restore creating fonts. Removing to reduce installer size.
-	return null
+	var default_regular_font_data: Font = load("res://addons/emote_theme/fonts/roboto_mono_regular.ttf")
+
+	var default_regular_font: Font = create_font(default_regular_font_data, p_scale)
+	p_theme.set_default_font(default_regular_font)
+
+	return default_regular_font
 
 
 # Rudimentary approach - deal with a more sophisticated DPI system in the future
@@ -687,10 +689,6 @@ static func generate_emote_theme(p_theme_class, p_scale: float) -> Theme:
 	theme.set_color("title_button_color", "Tree", DEFAULT_WIDGET_FONT_COLOR)
 	theme.set_color("guide_color", "Tree", guide_color)
 	theme.set_color("drop_position_color", "Tree", DEFAULT_ACCENT_COLOR)
-	theme.set_color("relationship_line_color", "Tree", DEFAULT_WIDGET_FONT_COLOR)
-	theme.set_color("parent_hl_line_color", "Tree", DEFAULT_FONT_COLOR_HL)
-	theme.set_color("children_hl_line_color", "Tree", DEFAULT_FONT_COLOR_HL)
-	
 	theme.set_constant("vseparation", "Tree", (DEFAULT_MARGIN_SIZE) * p_scale)
 	theme.set_constant("hseparation", "Tree", (DEFAULT_MARGIN_SIZE) * p_scale)
 	theme.set_constant("guide_width", "Tree", border_width)
