@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=118 format=3 uid="uid://bsqrhr15k2kar"]
 
-[ext_resource type="FontVariation" uid="uid://u73mqd3dchiq" path="res://addons/vsk_menu/fonts/ingame_menu_font.tres" id="1_oq4at"]
+[ext_resource type="FontVariation" uid="uid://b11gux52nvdc1" path="res://addons/vsk_menu/fonts/ingame_menu_font.tres" id="1_oq4at"]
 [ext_resource type="Texture2D" uid="uid://v73rdchuo7ui" path="res://addons/emote_theme/icons/icon_gui_checked.svg" id="2_u3w6l"]
 [ext_resource type="Texture2D" uid="uid://dk2niikg3ieio" path="res://addons/emote_theme/icons/icon_gui_radio_checked.svg" id="3_yyu5k"]
 [ext_resource type="Texture2D" uid="uid://b85mp2auv48ax" path="res://addons/emote_theme/icons/icon_gui_radio_unchecked.svg" id="4_1onj7"]
