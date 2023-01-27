@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/icon_zoom_reset.svg-ca9f14ca8edfdf1d830763ff2
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
